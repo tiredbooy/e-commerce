@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/Css/tailwind.css" />
+    <link rel="stylesheet" href="/assets/Css/styles.css" />
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="top-banner w-full bg-black p-2 text-center text-gray-300">
+        <span class="lg:text-lg md:text-base  sm:text-xs">  
+          Sign up and get 20% off your first order.  
+          <a class="text-white underline" href="">Sign Up Now</a>  
+        </span>
+      </div>
+  
+      
+    <nav class="bg-white w-full py-5 px-6 flex flex-col lg:flex-row items-center justify-between border-b">
+        <!-- Logo -->
+        <span class="font-extrabold text-2xl text-black"><a href="">SHOP.CO</a></span>
+    
+        <!-- Navigation Links (Desktop) -->
+        <ul class="hidden lg:flex items-center gap-8 text-gray-600 text-sm">
+            <li class="flex items-center gap-1 cursor-pointer hover:text-black duration-150">
+                <span>Shop</span>
+                <i class="fa-solid fa-angle-down text-gray-500"></i>
+            </li>
+            <li class="cursor-pointer hover:text-black duration-150"><a href="">On Sale</a></li>
+            <li class="cursor-pointer hover:text-black duration-150"><a href="">New Arrivals</a></li>
+            <li class="cursor-pointer hover:text-black duration-150"><a href="">Brands</a></li>
+        </ul>
+  
+        <!-- Search Bar (Mobile) -->
+        <div id="nav-search" class="relative flex items-center w-full lg:w-1/3 mt-4 lg:mt-0">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 cursor-pointer"></i>
+          <input
+              type="text"
+              class="w-full pl-10 py-2 rounded-full bg-gray-100 text-gray-600 border border-gray-300 focus:outline-none focus:ring focus:ring-gray-200 duration-150"
+              placeholder="Search for products..."
+          />
+      </div>
+  
+        <!-- HAMBURGER MENU AND ICONS  -->
+  
+        <div class="flex flex-row items-center justify-center lg:mt-0 mt-4 gap-5">
+          <div class="lg:hidden flex items-center gap-5 text-gray-600 lg:mt-0">
+            <i class="fa-solid fa-bars text-lg cursor-pointer hover:text-black"></i>
+          </div>
+    
+          <div class="flex items-center justify-center gap-5 text-gray-600 ">
+            <div class="relative">
+              <div class="absolute bottom-5 left-3 z-50">
+                  <div class="circle w-4 h-4 rounded-full bg-red-500 p-0.5 text-white text-xs text-center ">5</div>
+              </div>
+              <i class="fa-solid fa-cart-shopping text-lg cursor-pointer hover:text-black z-10 relative"></i>
+          </div>
+            <i class="fa-solid fa-user text-lg cursor-pointer hover:text-black"></i>
+          </div>
+  
+        </div>
+  
+    </nav>
+        
+
+    <main id="product-deatil" class="">
+        <section id="product-info-sec" class="flex flex-col gap-8 p-12 ">
+          <span class="text-gray-400">Home > Shop > Men > T-Shirt</span>
+      
+          <div class="flex flex-col  items-start md:flex-row lg:flex-row gap-5 flex-wrap ">
+              <!-- Thumbnail Images -->
+              <div class="flex flex-row md:flex-col lg:flex-col gap-5 ">
+                  <img src="/assets/images/products-assets/01.webp" alt="" class="max-h-40 object-cover rounded-xl border hover:border-black cursor-pointer duration-150">
+                  <img src="/assets/images/products-assets/02.webp" alt="" class="max-h-40 object-cover rounded-xl border hover:border-black cursor-pointer duration-150">
+                  <img src="/assets/images/products-assets/03.webp" alt="" class="max-h-40 object-cover rounded-xl border hover:border-black cursor-pointer duration-150">
+              </div>
+      
+              <!-- Main Image -->
+              <div class="sm:w-full md:w-[30%] lg:w-[30%]">
+                  <img src="/assets/images/products-assets/01.webp" alt="" class="max-h-full h-[520px] w-full object-cover rounded-xl">
+              </div>
+      
+              <!-- Product Details -->
+              <div class="w-full lg:w-[48%] flex flex-col gap-2">
+                  <h2 class="text-3xl lg:text-4xl font-bold">PRODUCT NAME</h2>
+      
+                  <div class="flex items-center mt-2">
+                      <div class="flex text-yellow-400 gap-2">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star-half-alt"></i>
+                      </div>
+                      <span class="ml-2 text-gray-600">4.5/5</span>
+                  </div>
+      
+                  <div class="mt-4">
+                      <span class="text-2xl font-bold text-black">$260</span>
+                      <span class="line-through text-gray-500">$300</span>
+                      <span class="text-red-500">-40%</span>
+                  </div>
+      
+                  <p class="mt-4 text-gray-700 border-b pb-5">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam deleniti rerum voluptates ipsa ea. Esse maxime quo et fugiat magnam?
+                  </p>
+      
+                  <div class="mt-4 border-b pb-5">
+                      <span class="block text-gray-500 font-bold">Select Colors</span>
+                      <div class="flex gap-2 mt-2">
+                          <div class="w-9 h-9 bg-green-700 rounded-full cursor-pointer"></div>
+                          <div class="w-9 h-9 bg-blue-700 rounded-full cursor-pointer"></div>
+                          <div class="w-9 h-9 bg-gray-700 rounded-full cursor-pointer"></div>
+                      </div>
+                  </div>
+      
+                  <div class="mt-4 border-b pb-5">
+                      <span class="block text-gray-500 font-bold">Choose Size</span>
+                      <div class="flex gap-4 mt-2">
+                          <button class="bg-gray-200 py-1 px-2 lg:py-2 lg:px-4 rounded-xl text-gray-500 hover:bg-black hover:text-white duration-150">Small</button>
+                          <button class="bg-gray-200 py-1 px-2 lg:py-2 lg:px-4 rounded-xl text-gray-500 hover:bg-black hover:text-white duration-150">Medium</button>
+                          <button class="bg-gray-200 py-1 px-2 lg:py-2 lg:px-4 rounded-xl text-gray-500 hover:bg-black hover:text-white duration-150">Large</button>
+                          <button class="bg-gray-200 py-1 px-2 lg:py-2 lg:px-4 rounded-xl text-gray-500 hover:bg-black hover:text-white duration-150">X-Large</button>
+                      </div>
+                  </div>
+      
+                  <div class="flex gap-4 mt-4 items-center lg:justify-start justify-center ">
+                      <input type="number" class="border p-2 w-[20%] text-center lg:w-16 rounded" min="1" max="10" value="1">
+                      <button class="bg-black text-white rounded-2xl px-8 py-2 lg:px-6 lg:py-2">Add to Cart</button>
+                  </div>
+              </div>
+          </div>
+  
+        </section>
+      
+        <section class="p-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+          <!-- Tabs Navigation -->
+          <div class="flex justify-center border-b border-gray-300 mb-6">
+            <button
+              id="tab-product-info"
+              class="px-6 py-3 text-gray-700 font-medium border-b-2 border-transparent hover:border-gray-500 duration-150"
+              onclick="showSection('product-info')"
+            >
+              Product Info
+            </button>
+            <button
+              id="tab-reviews"
+              class="px-6 py-3 text-gray-700 font-medium border-b-2 border-transparent hover:border-gray-500 duration-150"
+              onclick="showSection('reviews')"
+            >
+              Rating & Reviews
+            </button>
+            <button
+              id="tab-faqs"
+              class="px-6 py-3 text-gray-700 font-medium border-b-2 border-transparent hover:border-gray-500 duration-150"
+              onclick="showSection('faqs')"
+            >
+              FAQs
+            </button>
+          </div>
+      
+          <!-- Product Info Section -->
+          <div id="product-info" class="hidden">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Product Information</h2>
+            <p class="text-gray-700 leading-relaxed">
+              This t-shirt is crafted from high-quality, breathable fabric to ensure maximum comfort and style. Its unique design and durable material make it perfect for any occasion, whether casual outings or active lifestyles.
+            </p>
+            <ul class="mt-4 space-y-2 text-gray-700">
+              <li><strong>Material:</strong> 100% organic cotton</li>
+              <li><strong>Available Sizes:</strong> Small, Medium, Large, X-Large</li>
+              <li><strong>Colors:</strong> Olive, Navy Blue, Black</li>
+              <li><strong>Care Instructions:</strong> Machine wash cold, tumble dry low</li>
+            </ul>
+          </div>
+      
+          <!-- Reviews Section -->
+          <div id="reviews" class="hidden">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">All Reviews (451)</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  
+              <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="text-yellow-400">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span class="text-sm text-gray-500">Samantha D.</span>
+                  <i class="fas fa-check-circle text-green-500"></i>
+                </div>
+                <p class="text-sm text-gray-700 mb-4">
+                  "I absolutely love this t-shirt! The design is unique, and the fabric feels so comfortable. It's become my favorite go-to shirt."
+                </p>
+                <p class="text-xs text-gray-400">Posted on August 14, 2023</p>
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+  
+              <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="text-yellow-400">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span class="text-sm text-gray-500">Samantha D.</span>
+                  <i class="fas fa-check-circle text-green-500"></i>
+                </div>
+                <p class="text-sm text-gray-700 mb-4">
+                  "I absolutely love this t-shirt! The design is unique, and the fabric feels so comfortable. It's become my favorite go-to shirt."
+                </p>
+                <p class="text-xs text-gray-400">Posted on August 14, 2023</p>
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+  
+              <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="text-yellow-400">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span class="text-sm text-gray-500">Samantha D.</span>
+                  <i class="fas fa-check-circle text-green-500"></i>
+                </div>
+                <p class="text-sm text-gray-700 mb-4">
+                  "I absolutely love this t-shirt! The design is unique, and the fabric feels so comfortable. It's become my favorite go-to shirt."
+                </p>
+                <p class="text-xs text-gray-400">Posted on August 14, 2023</p>
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+              <!-- Add more review cards as necessary -->
+            </div>
+            <div class="flex justify-center mt-8">
+              <button class="bg-gray-100 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-200">Load More Reviews</button>
+            </div>
+          </div>
+      
+          <!-- FAQs Section -->
+          <div id="faqs" class="hidden">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+              <div>
+                <h3 class="font-medium text-gray-800">Q: What sizes are available?</h3>
+                <p class="text-gray-700">A: The t-shirt is available in Small, Medium, Large, and X-Large.</p>
+              </div>
+              <div>
+                <h3 class="font-medium text-gray-800">Q: Is the fabric eco-friendly?</h3>
+                <p class="text-gray-700">A: Yes, the t-shirt is made from 100% organic cotton.</p>
+              </div>
+              <div>
+                <h3 class="font-medium text-gray-800">Q: Can I return the product?</h3>
+                <p class="text-gray-700">A: Yes, you can return the product within 30 days of purchase.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </section>
+        
+        <section id="product-suggestion" class=" w-full flex flex-col items-center p-12 justify-center lg:px-24 lg:pt-24 gap-5">
+          <h2 class="font-extrabold text-4xl lg:text-5xl text-center">You Might Also like</h2>
+  
+          <div class="container cards mx-auto p-3 lg:p-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              
+              <div class="bg-white shadow-lg rounded-lg w-full overflow-hidden group">  
+                <div class="relative text-center">  
+                    <img  
+                        src="/assets/images/products-assets/102.png"  
+                        alt="T-shirt"  
+                        class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                    />  
+                   
+                    <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                    <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                    <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+                </div>  
+                <div class="p-4">  
+                    <h3 class="text-lg font-semibold text-gray-800">  
+                        T-shirt with Tape Details  
+                    </h3>  
+                    <div class="flex items-center mt-2">  
+                        <div class="flex text-yellow-400">  
+                             
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star-half-alt"></i>  
+                        </div>  
+                        <span class="ml-2 text-gray-600">4.5/5</span>  
+                    </div>  
+                    <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+                </div>  
+            </div>
+    
+              
+              <div class="bg-white shadow-lg rounded-lg overflow-hidden group">  
+                <div class="relative text-center">  
+                    <img  
+                        src="/assets/images/products-assets/01.webp"  
+                        alt="T-shirt"  
+                        class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                    />  
+                    
+                    <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                    <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                    <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+                </div>  
+                <div class="p-4">  
+                    <h3 class="text-lg font-semibold text-gray-800">  
+                        T-shirt with Tape Details  
+                    </h3>  
+                    <div class="flex items-center mt-2">  
+                        <div class="flex text-yellow-400">  
+                             
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star-half-alt"></i>  
+                        </div>  
+                        <span class="ml-2 text-gray-600">4.5/5</span>  
+                    </div>  
+                    <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+                </div>  
+            </div>
+    
+              <div class="bg-white shadow-lg rounded-lg overflow-hidden group">  
+                <div class="relative text-center">  
+                    <img  
+                        src="/assets/images/products-assets/300.webp"  
+                        alt="T-shirt"  
+                        class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                    />  
+                    
+                    <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                    <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                    <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+                </div>  
+                <div class="p-4">  
+                    <h3 class="text-lg font-semibold text-gray-800">  
+                        T-shirt with Tape Details  
+                    </h3>  
+                    <div class="flex items-center mt-2">  
+                        <div class="flex text-yellow-400">  
+                            
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star-half-alt"></i>  
+                        </div>  
+                        <span class="ml-2 text-gray-600">4.5/5</span>  
+                    </div>  
+                    <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+                </div>  
+            </div>
+    
+              <div class="bg-white shadow-lg rounded-lg overflow-hidden group">  
+                <div class="relative text-center">  
+                    <img  
+                        src="/assets/images/products-assets/400.webp"  
+                        alt="T-shirt"  
+                        class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                    />  
+                    
+                    <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                    <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                    <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+                </div>  
+                <div class="p-4">  
+                    <h3 class="text-lg font-semibold text-gray-800">  
+                        T-shirt with Tape Details  
+                    </h3>  
+                    <div class="flex items-center mt-2">  
+                        <div class="flex text-yellow-400">  
+                            
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star"></i>  
+                            <i class="fas fa-star-half-alt"></i>  
+                        </div>  
+                        <span class="ml-2 text-gray-600">4.5/5</span>  
+                    </div>  
+                    <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+                </div>  
+            </div>
+    
+            </div>
+          </div>
+    
+        </section>   
+    </main>
+    
+    <div class="flex flex-col lg:flex-row justify-around items-center p-5 bg-black rounded-xl w-[90%] mx-auto gap-4">
+        <div class="w-full lg:w-1/2 text-center">
+          <h2 class="text-white font-bold text-2xl lg:text-4xl">STAY UP TO DATE ABOUT OUR LATEST OFFERS</h2>
+        </div>
+      
+        <div class="flex flex-col gap-4">
+          <div class="relative">
+            
+            <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform text-black -translate-y-1/2"></i>
+            <input type="email" placeholder="Enter your email address" id="" class="p-2 pl-12 rounded-3xl outline-none w-full">
+          </div>
+          <button class="bg-white text-black px-16 py-2 rounded-3xl  transition-btn">Subscribe to Newsletter</button>
+        </div>
+      </div>
+  
+    <footer class="w-full h-auto bg-gray-200 p-6 lg:p-12">
+        <div class="top flex flex-wrap flex-col md:flex-nowrap md:flex-row lg:flex-row gap-5 items-center justify-around border-b border-black pb-8">
+          <div class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/5 text-center lg:text-left">
+            <h2 class="font-bold text-2xl lg:text-4xl">SHOP.CO</h2>
+            <span class="text-gray-700 cursor-pointer hover:text-black text-sm lg:text-base">
+              We have clothes that suit your style and which you're proud to wear. From women to men.
+            </span>
+            <div class="flex justify-center lg:justify-start gap-5">
+              <i class="fa-brands fa-twitter w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"></i>
+              <i class="fa-brands fa-facebook w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"></i>
+              <i class="fa-brands fa-instagram w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"></i>
+              <i class="fa-brands fa-github w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"></i>
+            </div>
+          </div>
+      
+          <div class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center">
+            <span class="font-bold">COMPANY</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">About</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Features</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Works</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Career</span>
+          </div>
+      
+          <div class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center">
+            <span class="font-bold">Help</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Customer Support</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Delivery Details</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Terms & Conditions</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Privacy Policy</span>
+          </div>
+      
+          <div class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center">
+            <span class="font-bold">FAQ</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Account</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Manage Deliveries</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Orders</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Payments</span>
+          </div>
+      
+          <div class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center">
+            <span class="font-bold">RESOURCES</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Free eBooks</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">Development Tutorial</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">How to - Blog</span>
+            <span class="text-gray-700 cursor-pointer hover:text-black">YouTube Playlist</span>
+          </div>
+        </div>
+      
+        <div class="bottom mt-6 flex flex-col lg:flex-row justify-between items-center gap-4 text-center lg:text-left">
+          <span class="text-gray-800 text-sm lg:text-base">© 2000-2021, All rights reserved</span>
+          <div class="flex flex-wrap justify-center lg:justify-start gap-5">
+            <i class="fa-brands fa-cc-visa text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"></i>
+            <i class="fa-brands fa-cc-mastercard text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"></i>
+            <i class="fa-brands fa-cc-paypal text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"></i>
+            <i class="fa-brands fa-apple-pay text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"></i>
+            <i class="fa-brands fa-google-pay text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"></i>
+          </div>
+        </div>
+    </footer>
+      
+
+    <script src="https://kit.fontawesome.com/febee2a18d.js" crossorigin="anonymous"></script>
+    <script src="/assets/Scripts/product.js"></script>
+</body>
+</html>

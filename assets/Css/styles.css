@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Vazirmatn:wght@100..900&display=swap');
+
+
+*{
+    margin: none;
+    padding: none;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    width: auto;
+    scroll-behavior: smooth;
+}
+
+#hero-sec {  
+    background: #eceaea;
+    
+}  
+
+.transition-btn {
+    position: relative;  /* To position the pseudo-element relative to the button */
+    cursor: pointer;
+    overflow: hidden;  /* Ensures that the pseudo-element doesn't overflow the button */
+    transition: color 0.5s ease, background-color 0.5s ease;  /* Transition for text color change */
+}
+
+.transition-btn::before {
+    
+    color: white;
+    content: '';  /* Pseudo-element requires content */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;  /* Initially, no width */
+    height: 100%;
+    background-color: black;  /* The color that will appear */
+    transition: width 0.5s ease; 
+    z-index: -1;
+    
+}
+
+.transition-btn:hover::before {
+    width: 100%;  /* On hover, the width expands to 100% */
+   
+}
+
+.transition-btn:hover {
+    z-index: 100;
+    color: white;  /* Change text color to white when hovered */
+    background-color: black; 
+    border: 1px solid white; /* Change text color to white when hovered */
+}

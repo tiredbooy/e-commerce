@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cetegory</title>
+    <link rel="stylesheet" href="/assets/Css/tailwind.css" />
+    <link rel="stylesheet" href="/assets/Css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="top-banner w-full bg-black p-2 text-center text-gray-300">
+        <span class="lg:text-lg md:text-base sm:text-xs">
+          Sign up and get 20% off your first order.
+          <a class="text-white underline" href="">Sign Up Now</a>
+        </span>
+      </div>
+
+      <nav
+        class="bg-white w-full py-5 px-6 flex flex-col lg:flex-row items-center justify-between border-b"
+      >
+        <!-- Logo -->
+        <span class="font-extrabold text-2xl text-black"
+          ><a href="">SHOP.CO</a></span
+        >
+
+        <!-- Navigation Links (Desktop) -->
+        <ul class="hidden lg:flex items-center gap-8 text-gray-600 text-sm">
+          <li
+            class="flex items-center gap-1 cursor-pointer hover:text-black duration-150"
+          >
+            <span>Shop</span>
+            <i class="fa-solid fa-angle-down text-gray-500"></i>
+          </li>
+          <li class="cursor-pointer hover:text-black duration-150">
+            <a href="">On Sale</a>
+          </li>
+          <li class="cursor-pointer hover:text-black duration-150">
+            <a href="">New Arrivals</a>
+          </li>
+          <li class="cursor-pointer hover:text-black duration-150">
+            <a href="">Brands</a>
+          </li>
+        </ul>
+
+        <!-- Search Bar (Mobile) -->
+        <div
+          id="nav-search"
+          class="relative flex items-center w-full lg:w-1/3 mt-4 lg:mt-0"
+        >
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 cursor-pointer"
+          ></i>
+          <input
+            type="text"
+            class="w-full pl-10 py-2 rounded-full bg-gray-100 text-gray-600 border border-gray-300 focus:outline-none focus:ring focus:ring-gray-200 duration-150"
+            placeholder="Search for products..."
+          />
+        </div>
+
+        <!-- HAMBURGER MENU AND ICONS  -->
+
+        <div
+          class="flex flex-row items-center justify-center lg:mt-0 mt-4 gap-5"
+        >
+          <div class="lg:hidden flex items-center gap-5 text-gray-600 lg:mt-0">
+            <i
+              class="fa-solid fa-bars text-lg cursor-pointer hover:text-black"
+            ></i>
+          </div>
+
+          <div class="flex items-center justify-center gap-5 text-gray-600">
+            <div class="relative">
+              <div class="absolute bottom-5 left-3 z-50">
+                <div
+                  class="circle w-4 h-4 rounded-full bg-red-500 p-0.5 text-white text-xs text-center"
+                >
+                  5
+                </div>
+              </div>
+              <i
+                class="fa-solid fa-cart-shopping text-lg cursor-pointer hover:text-black z-10 relative"
+              ></i>
+            </div>
+            <i
+              class="fa-solid fa-user text-lg cursor-pointer hover:text-black"
+            ></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <span
+        class="p-20 mt-5 text-gray-500 cursor-pointer hover:text-black duration-150"
+        >Home > Category</span
+      >
+      <section class="w-full py-6 px-16 flex flex-row gap-5">
+        <div id="filter-setting" class="w-1/4 border rounded-xl h-auto p-5">
+
+          <div class="flex flex-row justify-between items-center border-b pb-5">
+            <span class="text-lg font-semibold">Filters</span>
+            <i
+              class="fas fa-sliders text-gray-500 cursor-pointer hover:text-black"
+            ></i>
+          </div>
+
+          <ul class="py-5 flex flex-col gap-5 border-b">
+            <li class="flex flex-row justify-between items-center text-gray-500 hover:text-black duration-150">
+              <a class="" href="">T-shirts</a>
+              <i
+                class="fa-solid fa-angle-right  cursor-pointer"
+              ></i>
+            </li>
+            <li class="flex flex-row justify-between items-center text-gray-500 hover:text-black duration-150">
+              <a class="" href="">Shorts</a>
+              <i
+                class="fa-solid fa-angle-right  cursor-pointer"
+              ></i>
+            </li>
+            <li class="flex flex-row justify-between items-center text-gray-500 hover:text-black duration-150">
+              <a class="" href="">Shirts</a>
+              <i
+                class="fa-solid fa-angle-right  cursor-pointer"
+              ></i>
+            </li>
+            <li class="flex flex-row justify-between items-center text-gray-500 hover:text-black duration-150">
+              <a class="" href="">Hoodie</a>
+              <i
+                class="fa-solid fa-angle-right  cursor-pointer"
+              ></i>
+            </li>
+            <li class="flex flex-row justify-between items-center text-gray-500 hover:text-black duration-150">
+              <a class="" href="">Perfume</a>
+              <i
+                class="fa-solid fa-angle-right  cursor-pointer"
+              ></i>
+            </li>
+          </ul>
+
+          <div class="flex flex-col gap-4 py-5 border-b">
+
+            <div class="flex flex-row justify-between items-center">
+              <span class="font-semibold text-lg">Price</span>
+              <i class="fas fa-angle-up"></i>
+            </div>
+
+            <div class="flex flex-row items-center justify-between">
+              <input type="number" min="1" max="499" class="p-2 text-center rounded-lg border outline-none w-1/3" placeholder="$">
+              <span>To</span>
+              <input type="number" min="1" max="500" class="p-2 text-center rounded-lg border outline-none w-1/3" placeholder="$">
+            </div>
+          </div>
+
+          <div class="flex flex-col py-5 border-b">
+
+            <div class="flex flex-row justify-between items-center">
+              <span>Colors</span>
+              <i class="fas fa-angle-up"></i>
+            </div>
+
+            <div id="colors" class="flex flex-wrap gap-3 items-center justify-center pt-5">
+              <div class="w-8 h-8 rounded-full bg-red-500 border cursor-pointer"></div>
+              <div class="w-8 h-8 rounded-full bg-green-500 border cursor-pointer"></div>
+              <div class="w-8 h-8 rounded-full bg-yellow-500 border cursor-pointer"></div>
+              <div class="w-8 h-8 rounded-full bg-sky-400  border cursor-pointer"></div>
+              <div class="w-8 h-8 rounded-full bg-purple-500 border cursor-pointer"></div>
+              <div class="w-8 h-8 rounded-full bg-pink-500 border cursor-pointer"></div>
+              <div class="w-8 h-8 rounded-full bg-orange-500 border cursor-pointer"></div>
+              <div class="w-8 h-8 rounded-full bg-blue-800  border cursor-pointer"></div>
+              <div class="w-8 h-8 rounded-full bg-white border cursor-pointer"></div>
+              <div class="w-8 h-8 rounded-full bg-black border cursor-pointer"></div>
+            </div>
+
+          </div>
+
+          <div id="sizes" class="py-5 flex flex-col gap-5 border-b">
+            <div class="flex flex-row justify-between items-center">
+
+              <span>Size</span>
+              <i class="fas fa-angle-up"></i>
+            </div>
+
+            <div class="flex flex-wrap gap-2 items-center justify-center">
+              <div class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150">Small</div>
+              <div class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150">Medium</div>
+              <div class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150">Large</div>
+              <div class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150">X-Large</div>
+              <div class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150">2X-Large</div>
+            </div>
+          </div>
+
+          <div id="dress-style" class="py-5">
+            <div class="flex flex-row justify-between items-center">
+              <span>Style</span>
+              <i class="fas fa-angle-up"></i>
+            </div>
+            <ul class="flex flex-col gap-2 py-5">
+              <li class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
+                <a href="">Casual</a>
+                <i class="fas fa-angle-right"></i>
+              </li>
+              <li class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
+                <a href="">Formal</a>
+                <i class="fas fa-angle-right"></i>
+              </li>
+              <li class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
+                <a href="">Party</a>
+                <i class="fas fa-angle-right"></i>
+              </li>
+              <li class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
+                <a href="">Gym</a>
+                <i class="fas fa-angle-right"></i>
+              </li>
+            </ul>
+          </div>
+
+          <div class="text-center">
+            <button class="py-2 px-8 bg-black text-white rounded-2xl text-center">Apply Filter</button>
+          </div>
+        </div>
+
+        <div id="products" class="w-full bg-red-500 h-auto"></div>
+      </section>
+    </main>
+
+    <div
+      class="flex flex-col lg:flex-row justify-around items-center p-5 bg-black rounded-xl w-[90%] mx-auto gap-4"
+    >
+      <div class="w-full lg:w-1/2 text-center">
+        <h2 class="text-white font-bold text-2xl lg:text-4xl">
+          STAY UP TO DATE ABOUT OUR LATEST OFFERS
+        </h2>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <div class="relative">
+          <i
+            class="fa-regular fa-envelope absolute left-4 top-1/2 transform text-black -translate-y-1/2"
+          ></i>
+          <input
+            type="email"
+            placeholder="Enter your email address"
+            id=""
+            class="p-2 pl-12 rounded-3xl outline-none w-full"
+          />
+        </div>
+        <button
+          class="bg-white text-black px-16 py-2 rounded-3xl transition-btn"
+        >
+          Subscribe to Newsletter
+        </button>
+      </div>
+    </div>
+
+    <footer class="w-full h-auto bg-gray-200 p-6 lg:p-12">
+      <div
+        class="top flex flex-wrap flex-col md:flex-nowrap md:flex-row lg:flex-row gap-5 items-center justify-around border-b border-black pb-8"
+      >
+        <div
+          class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/5 text-center lg:text-left"
+        >
+          <h2 class="font-bold text-2xl lg:text-4xl">SHOP.CO</h2>
+          <span
+            class="text-gray-700 cursor-pointer hover:text-black text-sm lg:text-base"
+          >
+            We have clothes that suit your style and which you're proud to wear.
+            From women to men.
+          </span>
+          <div class="flex justify-center lg:justify-start gap-5">
+            <i
+              class="fa-brands fa-twitter w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"
+            ></i>
+            <i
+              class="fa-brands fa-facebook w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"
+            ></i>
+            <i
+              class="fa-brands fa-instagram w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"
+            ></i>
+            <i
+              class="fa-brands fa-github w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"
+            ></i>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center"
+        >
+          <span class="font-bold">COMPANY</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >About</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Features</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Works</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Career</span
+          >
+        </div>
+
+        <div
+          class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center"
+        >
+          <span class="font-bold">Help</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Customer Support</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Delivery Details</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Terms & Conditions</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Privacy Policy</span
+          >
+        </div>
+
+        <div
+          class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center"
+        >
+          <span class="font-bold">FAQ</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Account</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Manage Deliveries</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Orders</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Payments</span
+          >
+        </div>
+
+        <div
+          class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center"
+        >
+          <span class="font-bold">RESOURCES</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Free eBooks</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >Development Tutorial</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >How to - Blog</span
+          >
+          <span class="text-gray-700 cursor-pointer hover:text-black"
+            >YouTube Playlist</span
+          >
+        </div>
+      </div>
+
+      <div
+        class="bottom mt-6 flex flex-col lg:flex-row justify-between items-center gap-4 text-center lg:text-left"
+      >
+        <span class="text-gray-800 text-sm lg:text-base"
+          >© 2000-2021, All rights reserved</span
+        >
+        <div class="flex flex-wrap justify-center lg:justify-start gap-5">
+          <i
+            class="fa-brands fa-cc-visa text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"
+          ></i>
+          <i
+            class="fa-brands fa-cc-mastercard text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"
+          ></i>
+          <i
+            class="fa-brands fa-cc-paypal text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"
+          ></i>
+          <i
+            class="fa-brands fa-apple-pay text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"
+          ></i>
+          <i
+            class="fa-brands fa-google-pay text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"
+          ></i>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/febee2a18d.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

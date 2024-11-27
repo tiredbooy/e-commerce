@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/Css/tailwind.css" />
+    <link rel="stylesheet" href="/assets/Css/styles.css" />
+    <title>Home Page</title>
+  </head>
+  <body class="duration-150">
+    
+    
+    <div class="top-banner w-full bg-black p-2 text-center text-gray-300">
+      <span class="lg:text-lg md:text-base  sm:text-xs">  
+        Sign up and get 20% off your first order.  
+        <a class="text-white underline" href="">Sign Up Now</a>  
+      </span>
+    </div>
+
+    
+    <nav class="bg-white w-full py-5 px-6 flex flex-col lg:flex-row items-center justify-between border-b">
+      <!-- Logo -->
+      <span class="font-extrabold text-2xl text-black"><a href="">SHOP.CO</a></span>
+  
+      <!-- Navigation Links (Desktop) -->
+      <ul class="hidden lg:flex items-center gap-8 text-gray-600 text-sm">
+          <li class="flex items-center gap-1 cursor-pointer hover:text-black duration-150">
+              <span>Shop</span>
+              <i class="fa-solid fa-angle-down text-gray-500"></i>
+          </li>
+          <li class="cursor-pointer hover:text-black duration-150"><a href="">On Sale</a></li>
+          <li class="cursor-pointer hover:text-black duration-150"><a href="">New Arrivals</a></li>
+          <li class="cursor-pointer hover:text-black duration-150"><a href="">Brands</a></li>
+      </ul>
+
+      <!-- Search Bar (Mobile) -->
+      <div id="nav-search" class="relative flex items-center w-full lg:w-1/3 mt-4 lg:mt-0">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 cursor-pointer"></i>
+        <input
+            type="text"
+            class="w-full pl-10 py-2 rounded-full bg-gray-100 text-gray-600 border border-gray-300 focus:outline-none focus:ring focus:ring-gray-200 duration-150"
+            placeholder="Search for products..."
+        />
+    </div>
+
+      <!-- HAMBURGER MENU AND ICONS  -->
+
+      <div class="flex flex-row items-center justify-center lg:mt-0 mt-4 gap-5">
+        <div class="lg:hidden flex items-center gap-5 text-gray-600 lg:mt-0">
+          <i class="fa-solid fa-bars text-lg cursor-pointer hover:text-black"></i>
+        </div>
+  
+        <div class="flex items-center justify-center gap-5 text-gray-600 ">
+          <div class="relative">
+            <div class="absolute bottom-5 left-3 z-50">
+                <div class="circle w-4 h-4 rounded-full bg-red-500 p-0.5 text-white text-xs text-center ">5</div>
+            </div>
+            <i class="fa-solid fa-cart-shopping text-lg cursor-pointer hover:text-black z-10 relative"></i>
+        </div>
+          <i class="fa-solid fa-user text-lg cursor-pointer hover:text-black"></i>
+        </div>
+
+      </div>
+
+    </nav>
+      
+    <main class="home-page">
+
+    <section id="hero-sec" class="relative w-full overflow-hidden flex flex-col lg:flex-row items-center lg:justify-between">
+        <!-- Hero Left -->
+        <div id="hero-left" class="flex flex-col gap-8 items-center p-8 lg:p-16">
+          <!-- Hero Text -->
+          <div id="heroSec-text" class="w-full mt-10 flex flex-col gap-5 text-center lg:text-left">
+            <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl leading-tight">
+              FIND CLOTHES THAT MATCH YOUR STYLE
+            </h1>
+            <p class="text-gray-700 text-sm sm:text-base md:text-lg">
+              Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.
+            </p>
+          </div>
+      
+          <!-- Shop Now Button -->
+          <button class="bg-black rounded-xl text-white px-6 py-2 hover:px-8 duration-150 hover:rounded-2xl">
+            Shop Now
+          </button>
+      
+          <!-- Statistics -->
+          <div id="statistics" class="w-full flex flex-wrap justify-center gap-6 mt-8 lg:justify-start">
+            <div class="flex flex-col items-center">
+              <span class="text-2xl sm:text-3xl md:text-4xl font-bold">200+</span>
+              <span class="text-sm sm:text-base">International Brands</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span class="text-2xl sm:text-3xl md:text-4xl font-bold">2,000+</span>
+              <span class="text-sm sm:text-base">High-Quality Products</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span class="text-2xl sm:text-3xl md:text-4xl font-bold">30,000+</span>
+              <span class="text-sm sm:text-base">Happy Customers</span>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Hero Right -->
+        <div id="hero-right" class="w-full flex items-center justify-center p-4 lg:p-0">
+          <img 
+            src="/assets/images/site-assets/c.jpg" 
+            alt="A man standing against a backdrop" 
+            class="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] object-cover"
+          >
+        </div>
+    </section>
+      
+    
+
+    <div id="brand-names" class="w-full bg-black h-[140px] p-1 flex text-white flex-wrap items-center justify-center gap-y-6 gap-x-8 lg:gap-40">
+        <span class="font-bold text-2xl lg:text-3xl md:text-2xl">VERSACE</span>
+        <span class="font-bold text-2xl lg:text-3xl md:text-2xl">ZARA</span>
+        <span class="font-bold text-2xl lg:text-3xl md:text-2xl">GUCCI</span>
+        <span class="font-bold text-2xl lg:text-3xl md:text-2xl">PRADA</span>
+        <span class="font-bold text-2xl lg:text-3xl md:text-2xl">CALVIN KLEIN</span>
+    </div>
+
+
+    
+    <section id="new-arrival" class="h-auto w-full flex flex-col items-center p-8 lg:px-24 lg:pt-24 border-b gap-16">
+      <h2 class="font-bold text-5xl">NEW ARRIVALS</h2>
+
+      <div class="container cards mx-auto p-6">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="bg-white shadow-lg rounded-lg w-full overflow-hidden group">  
+            <div class="relative text-center">  
+                <img  
+                    src="/assets/images/products-assets/102.png"  
+                    alt="T-shirt"  
+                    class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                />  
+               
+                <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+            </div>  
+            <div class="p-4">  
+                <h3 class="text-lg font-semibold text-gray-800">  
+                    T-shirt with Tape Details  
+                </h3>  
+                <div class="flex items-center mt-2">  
+                    <div class="flex text-yellow-400">  
+                         
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star-half-alt"></i>  
+                    </div>  
+                    <span class="ml-2 text-gray-600">4.5/5</span>  
+                </div>  
+                <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+            </div>  
+        </div>
+
+          
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden group">  
+            <div class="relative text-center">  
+                <img  
+                    src="/assets/images/products-assets/01.webp"  
+                    alt="T-shirt"  
+                    class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                />  
+                
+                <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+            </div>  
+            <div class="p-4">  
+                <h3 class="text-lg font-semibold text-gray-800">  
+                    T-shirt with Tape Details  
+                </h3>  
+                <div class="flex items-center mt-2">  
+                    <div class="flex text-yellow-400">  
+                         
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star-half-alt"></i>  
+                    </div>  
+                    <span class="ml-2 text-gray-600">4.5/5</span>  
+                </div>  
+                <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+            </div>  
+        </div>
+
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden group">  
+            <div class="relative text-center">  
+                <img  
+                    src="/assets/images/products-assets/300.webp"  
+                    alt="T-shirt"  
+                    class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                />  
+                
+                <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+            </div>  
+            <div class="p-4">  
+                <h3 class="text-lg font-semibold text-gray-800">  
+                    T-shirt with Tape Details  
+                </h3>  
+                <div class="flex items-center mt-2">  
+                    <div class="flex text-yellow-400">  
+                        
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star-half-alt"></i>  
+                    </div>  
+                    <span class="ml-2 text-gray-600">4.5/5</span>  
+                </div>  
+                <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+            </div>  
+        </div>
+
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden group">  
+            <div class="relative text-center">  
+                <img  
+                    src="/assets/images/products-assets/400.webp"  
+                    alt="T-shirt"  
+                    class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                />  
+                
+                <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+            </div>  
+            <div class="p-4">  
+                <h3 class="text-lg font-semibold text-gray-800">  
+                    T-shirt with Tape Details  
+                </h3>  
+                <div class="flex items-center mt-2">  
+                    <div class="flex text-yellow-400">  
+                        
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star-half-alt"></i>  
+                    </div>  
+                    <span class="ml-2 text-gray-600">4.5/5</span>  
+                </div>  
+                <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+            </div>  
+        </div>
+
+         
+        </div>
+      </div>
+
+      <button
+        class="px-12 py-2 rounded-xl border text-lg hover:shadow hover:scale-110 duration-150"
+      >
+        View All
+      </button>
+    </section>
+
+    <section id="top-selling" class="h-auto w-full flex flex-col items-center p-8 lg:px-24 lg:pt-24 gap-16">
+      <h2 class="font-bold text-5xl">TOP SELLING</h2>
+
+      <div class="container cards mx-auto p-6">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="bg-white shadow-lg rounded-lg w-full overflow-hidden group">  
+            <div class="relative text-center">  
+                <img  
+                    src="/assets/images/products-assets/102.png"  
+                    alt="T-shirt"  
+                    class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                />  
+               
+                <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+            </div>  
+            <div class="p-4">  
+                <h3 class="text-lg font-semibold text-gray-800">  
+                    T-shirt with Tape Details  
+                </h3>  
+                <div class="flex items-center mt-2">  
+                    <div class="flex text-yellow-400">  
+                         
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star-half-alt"></i>  
+                    </div>  
+                    <span class="ml-2 text-gray-600">4.5/5</span>  
+                </div>  
+                <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+            </div>  
+        </div>
+
+          
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden group">  
+            <div class="relative text-center">  
+                <img  
+                    src="/assets/images/products-assets/01.webp"  
+                    alt="T-shirt"  
+                    class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                />  
+                
+                <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+            </div>  
+            <div class="p-4">  
+                <h3 class="text-lg font-semibold text-gray-800">  
+                    T-shirt with Tape Details  
+                </h3>  
+                <div class="flex items-center mt-2">  
+                    <div class="flex text-yellow-400">  
+                         
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star-half-alt"></i>  
+                    </div>  
+                    <span class="ml-2 text-gray-600">4.5/5</span>  
+                </div>  
+                <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+            </div>  
+        </div>
+
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden group">  
+            <div class="relative text-center">  
+                <img  
+                    src="/assets/images/products-assets/300.webp"  
+                    alt="T-shirt"  
+                    class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                />  
+                
+                <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+            </div>  
+            <div class="p-4">  
+                <h3 class="text-lg font-semibold text-gray-800">  
+                    T-shirt with Tape Details  
+                </h3>  
+                <div class="flex items-center mt-2">  
+                    <div class="flex text-yellow-400">  
+                        
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star-half-alt"></i>  
+                    </div>  
+                    <span class="ml-2 text-gray-600">4.5/5</span>  
+                </div>  
+                <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+            </div>  
+        </div>
+
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden group">  
+            <div class="relative text-center">  
+                <img  
+                    src="/assets/images/products-assets/400.webp"  
+                    alt="T-shirt"  
+                    class="w-full h-96 transition duration-300 ease-in-out group-hover:brightness-50 group-hover:opacity-90 cursor-pointer"  
+                />  
+                
+                <i class="fas fa-search absolute top-[45%] left-24 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-150 ease-in"></i>   
+                <i class="fas fa-heart absolute top-[45%] left-36 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-200 ease-in"></i>  
+                <i class="fas fa-shopping-basket absolute top-[45%] left-48 text-lg text-gray-400 w-9 h-9 border rounded text-center p-1.5 cursor-pointer border-gray-400 hover:bg-green-500 hover:text-white hover:border-none opacity-0 group-hover:opacity-100 transition duration-300 ease-in"></i>  
+            </div>  
+            <div class="p-4">  
+                <h3 class="text-lg font-semibold text-gray-800">  
+                    T-shirt with Tape Details  
+                </h3>  
+                <div class="flex items-center mt-2">  
+                    <div class="flex text-yellow-400">  
+                        
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star"></i>  
+                        <i class="fas fa-star-half-alt"></i>  
+                    </div>  
+                    <span class="ml-2 text-gray-600">4.5/5</span>  
+                </div>  
+                <div class="mt-3 text-lg font-semibold text-gray-800">$120</div>  
+            </div>  
+        </div>
+
+         
+        </div>
+      </div>
+
+      <button
+        class="px-12 py-2 rounded-xl border text-lg hover:shadow hover:scale-110 duration-150"
+      >
+        View All
+      </button>
+    </section>
+
+    <section id="browse-category" class="h-auto w-full flex flex-col items-center p-5 lg:px-12 lg:pt-12">
+      <div class="container rounded-3xl py-8 px-5 bg-gray-200 text-center">
+        <h2 class="font-bold text-4xl lg:text-5xl mb-5">BROWSE BY DRESS STYLE</h2>
+    
+        <div class="cards flex flex-wrap gap-8 justify-center mt-14">
+          
+          <div class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-xl shadow-md relative cursor-pointer lg:max-h-[350px] group">
+            <img src="/assets/images/site-assets/ca.avif" alt="Casual" class="rounded-md w-[100%] h-full object-cover duration-300 group-hover:scale-105">
+            <p class="absolute top-4 left-4 bg-white text-black text-xl font-semibold px-3 py-1 rounded">Casual</p>
+          </div>
+    
+          
+          <div class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-lg shadow-md relative cursor-pointer max-h-[350px] group">
+            <img src="/assets/images/site-assets/formal.avif" alt="Formal" class="rounded-md w-[100%] h-full object-cover  duration-300 group-hover:scale-105">
+            <p class="absolute top-4 left-4 bg-white text-black text-xl font-semibold px-3 py-1 rounded">Formal</p>
+          </div>
+    
+         
+          <div class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-lg shadow-md relative cursor-pointer max-h-[350px] group">
+            <img src="/assets/images/site-assets/w.jpg" alt="Party" class="rounded-md w-full h-full object-cover duration-300 group-hover:scale-105">
+            <p class="absolute top-4 left-4 bg-white text-black text-xl font-semibold px-3 py-1 rounded">Party</p>
+          </div>
+    
+          
+          <div class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-lg shadow-md relative cursor-pointer max-h-[350px] group">
+            <img src="/assets/images/site-assets/gym.avif" alt="Gym" class="rounded-md w-[100%] h-full object-cover duration-300 group-hover:scale-105">
+            <p class="absolute top-4 left-4 bg-white text-black text-xl font-semibold px-3 py-1 rounded">Gym</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="customer-review" class="w-full h-auto mt-8 p-5 lg:p-16">
+      <div class="flex flex-row items-center justify-between">
+        <h2 class="font-extrabold text-3xl lg:text-5xl">OUR HAPPY CUSTOMERS</h2>
+        <div class="flex flex-row gap-5">
+          <i class="fa-solid fa-angle-left text-gray-700 text-2xl hover:text-black cursor-pointer duration-150"></i>
+          <i class="fa-solid fa-angle-right text-gray-700 text-2xl hover:text-black cursor-pointer duration-150"></i>
+        </div>
+      </div>
+    
+      
+      <div class="text-boxes w-full p-3 flex justify-center gap-5 items-center relative overflow-hidden">
+
+        <div class="text-box border mt-12 p-5 w-1/4 rounded-2xl transition-all duration-500 opacity-30 hidden lg:block">
+          <div class="flex text-yellow-400 gap-3">
+            
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+    
+          <div class="flex flex-row gap-1 mt-3 items-center">
+            <span class="font-bold text-lg">Alex K.</span>
+            <i class="fa-solid fa-check rounded-full text-sm w-5 h-5 p-1 text-center bg-green-500 text-white"></i>
+          </div>
+    
+          <p class="text-gray-500 text-sm mt-1">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus ratione dicta eum dignissimos aliquam quod porro ducimus adipisci numquam tempore, officiis harum inventore ad rerum molestias illo fuga doloremque mollitia."</p>
+        </div>
+    
+        
+        <div class="text-box border mt-12 p-5 w-1/4 rounded-2xl transition-all duration-500 opacity-50 hidden lg:block">
+          <div class="flex text-yellow-400 gap-3">
+            
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+    
+          <div class="flex flex-row gap-1 mt-3 items-center">
+            <span class="font-bold text-lg">Alex K.</span>
+            <i class="fa-solid fa-check rounded-full text-sm w-5 h-5 p-1 text-center bg-green-500 text-white"></i>
+          </div>
+    
+          <p class="text-gray-500 text-sm mt-1">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus ratione dicta eum dignissimos aliquam quod porro ducimus adipisci numquam tempore, officiis harum inventore ad rerum molestias illo fuga doloremque mollitia."</p>
+        </div>
+    
+        
+        <div class="text-box border mt-5 lg:mt-12 p-5 w-full lg:w-1/4 rounded-2xl transition-all duration-500 opacity-100">
+          <div class="flex text-yellow-400 gap-3">
+            
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+    
+          <div class="flex flex-row gap-1 mt-3 items-center">
+            <span class="font-bold text-lg">Alex K.</span>
+            <i class="fa-solid fa-check rounded-full text-sm w-5 h-5 p-1 text-center bg-green-500 text-white"></i>
+          </div>
+    
+          <p class="text-gray-500 text-sm mt-1">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus ratione dicta eum dignissimos aliquam quod porro ducimus adipisci numquam tempore, officiis harum inventore ad rerum molestias illo fuga doloremque mollitia."</p>
+        </div>
+    
+        
+        <div class="text-box border mt-12 p-5 w-1/4 rounded-2xl transition-all duration-500 opacity-50 hidden lg:block">
+          <div class="flex text-yellow-400 gap-3">
+            
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+    
+          <div class="flex flex-row gap-1 mt-3 items-center">
+            <span class="font-bold text-lg">Alex K.</span>
+            <i class="fa-solid fa-check rounded-full text-sm w-5 h-5 p-1 text-center bg-green-500 text-white"></i>
+          </div>
+    
+          <p class="text-gray-500 text-sm mt-1">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus ratione dicta eum dignissimos aliquam quod porro ducimus adipisci numquam tempore, officiis harum inventore ad rerum molestias illo fuga doloremque mollitia."</p>
+        </div>
+    
+        
+        <div class="text-box border mt-12 p-5 w-1/4 rounded-2xl transition-all duration-500 opacity-30 hidden lg:block">
+          <div class="flex text-yellow-400 gap-3">
+           
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+    
+          <div class="flex flex-row gap-1 mt-3 items-center">
+            <span class="font-bold text-lg">Alex K.</span>
+            <i class="fa-solid fa-check rounded-full text-sm w-5 h-5 p-1 text-center bg-green-500 text-white"></i>
+          </div>
+    
+          <p class="text-gray-500 text-sm mt-1">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus ratione dicta eum dignissimos aliquam quod porro ducimus adipisci numquam tempore, officiis harum inventore ad rerum molestias illo fuga doloremque mollitia."</p>
+        </div>
+    
+      </div>
+    </section>
+    
+    
+    </main>
+
+    
+
+    <div id="shop-modal" class="bg-white p-8 w-full md:w-1/2 lg:w-1/4 lg:absolute lg:left-[19%] lg:top-[15%] flex flex-col gap-5 hidden">
+        <ul>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank" rel="noopener noreferrer">Casual Cloth</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank" rel="noopener noreferrer">Gym Cloth</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank" rel="noopener noreferrer">Party Cloth</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank" rel="noopener noreferrer">Formal Cloth</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank" rel="noopener noreferrer">Perfume</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank" rel="noopener noreferrer">Shoes</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank" rel="noopener noreferrer">Headphones</a></li>
+        </ul>
+    </div>
+    
+    
+    
+    <div class="flex flex-col lg:flex-row justify-around items-center p-5 bg-black rounded-xl w-[90%] mx-auto gap-4">
+      <div class="w-full lg:w-1/2 text-center">
+        <h2 class="text-white font-bold text-2xl lg:text-4xl">STAY UP TO DATE ABOUT OUR LATEST OFFERS</h2>
+      </div>
+    
+      <div class="flex flex-col gap-4">
+        <div class="relative">
+          
+          <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform text-black -translate-y-1/2"></i>
+          <input type="email" placeholder="Enter your email address" id="" class="p-2 pl-12 rounded-3xl outline-none w-full">
+        </div>
+        <button class="bg-white text-black px-16 py-2 rounded-3xl  transition-btn">Subscribe to Newsletter</button>
+      </div>
+    </div>
+
+    <footer class="w-full h-auto bg-gray-200 p-6 lg:p-12">
+      <div class="top flex flex-wrap flex-col md:flex-nowrap md:flex-row lg:flex-row gap-5 items-center justify-around border-b border-black pb-8">
+        <div class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/5 text-center lg:text-left">
+          <h2 class="font-bold text-2xl lg:text-4xl">SHOP.CO</h2>
+          <span class="text-gray-700 cursor-pointer hover:text-black text-sm lg:text-base">
+            We have clothes that suit your style and which you're proud to wear. From women to men.
+          </span>
+          <div class="flex justify-center lg:justify-start gap-5">
+            <i class="fa-brands fa-twitter w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"></i>
+            <i class="fa-brands fa-facebook w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"></i>
+            <i class="fa-brands fa-instagram w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"></i>
+            <i class="fa-brands fa-github w-6 h-6 p-1 rounded-full bg-white text-black text-center hover:bg-black hover:text-white cursor-pointer duration-150"></i>
+          </div>
+        </div>
+    
+        <div class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center">
+          <span class="font-bold">COMPANY</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">About</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Features</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Works</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Career</span>
+        </div>
+    
+        <div class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center">
+          <span class="font-bold">Help</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Customer Support</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Delivery Details</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Terms & Conditions</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Privacy Policy</span>
+        </div>
+    
+        <div class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center">
+          <span class="font-bold">FAQ</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Account</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Manage Deliveries</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Orders</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Payments</span>
+        </div>
+    
+        <div class="flex flex-col gap-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/6 text-center">
+          <span class="font-bold">RESOURCES</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Free eBooks</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">Development Tutorial</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">How to - Blog</span>
+          <span class="text-gray-700 cursor-pointer hover:text-black">YouTube Playlist</span>
+        </div>
+      </div>
+    
+      <div class="bottom mt-6 flex flex-col lg:flex-row justify-between items-center gap-4 text-center lg:text-left">
+        <span class="text-gray-800 text-sm lg:text-base">© 2000-2021, All rights reserved</span>
+        <div class="flex flex-wrap justify-center lg:justify-start gap-5">
+          <i class="fa-brands fa-cc-visa text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"></i>
+          <i class="fa-brands fa-cc-mastercard text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"></i>
+          <i class="fa-brands fa-cc-paypal text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"></i>
+          <i class="fa-brands fa-apple-pay text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"></i>
+          <i class="fa-brands fa-google-pay text-3xl cursor-pointer text-gray-900 hover:text-black duration-150"></i>
+        </div>
+      </div>
+    </footer>
+    
+    
+    <script src="https://kit.fontawesome.com/febee2a18d.js" crossorigin="anonymous"></script>
+    <script src="/assets/Scripts/main.js"></script>
+
+  </body>
+</html>
