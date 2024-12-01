@@ -10,93 +10,77 @@
   <body>
     <header>
       <div class="top-banner w-full bg-black p-2 text-center text-gray-300">
-        <span class="lg:text-lg md:text-base sm:text-xs">
-          Sign up and get 20% off your first order.
-          <a class="text-white underline" href="">Sign Up Now</a>
+        <span class="lg:text-lg md:text-base  sm:text-xs">  
+          Sign up and get 20% off your first order.  
+          <a class="text-white underline" href="">Sign Up Now</a>  
         </span>
       </div>
-
-      <nav
-        class="bg-white w-full py-5 px-6 flex flex-col lg:flex-row items-center justify-between border-b"
-      >
+  
+      <nav class="bg-white w-full py-5 px-6 flex flex-col lg:flex-row items-center justify-between border-b">
         <!-- Logo -->
-        <span class="font-extrabold text-2xl text-black"
-          ><a href="">SHOP.CO</a></span
-        >
-
+        <span class="font-extrabold text-2xl text-black"><a href="/Pages/homePage.html">SHOP.CO</a></span>
+    
         <!-- Navigation Links (Desktop) -->
         <ul class="hidden lg:flex items-center gap-8 text-gray-600 text-sm">
-          <li
-            class="flex items-center gap-1 cursor-pointer hover:text-black duration-150"
-          >
-            <span>Shop</span>
-            <i class="fa-solid fa-angle-down text-gray-500"></i>
-          </li>
-          <li class="cursor-pointer hover:text-black duration-150">
-            <a href="">On Sale</a>
-          </li>
-          <li class="cursor-pointer hover:text-black duration-150">
-            <a href="">New Arrivals</a>
-          </li>
-          <li class="cursor-pointer hover:text-black duration-150">
-            <a href="">Brands</a>
-          </li>
+            <li id="shop-btn" class="flex items-center gap-1 cursor-pointer hover:text-black duration-150">
+                <span>Shop</span>
+                <i class="fa-solid fa-angle-down text-gray-500 hover:text-black"></i>
+            </li>
+            <li class="cursor-pointer hover:text-black duration-150"><a href="">On Sale</a></li>
+            <li class="cursor-pointer hover:text-black duration-150"><a href="">New Arrivals</a></li>
+            <li class="cursor-pointer hover:text-black duration-150"><a href="">Brands</a></li>
         </ul>
-
+  
         <!-- Search Bar (Mobile) -->
-        <div
-          id="nav-search"
-          class="relative flex items-center w-full lg:w-1/3 mt-4 lg:mt-0"
-        >
-          <i
-            class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 cursor-pointer"
-          ></i>
+        <div id="nav-search" class="relative flex items-center w-full lg:w-1/3 mt-4 lg:mt-0">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 cursor-pointer"></i>
           <input
-            type="text"
-            class="w-full pl-10 py-2 rounded-full bg-gray-100 text-gray-600 border border-gray-300 focus:outline-none focus:ring focus:ring-gray-200 duration-150"
-            placeholder="Search for products..."
+              type="text"
+              class="w-full pl-10 py-2 rounded-full bg-gray-100 text-gray-600 border border-gray-300 focus:outline-none focus:ring focus:ring-gray-200 duration-150"
+              placeholder="Search for products..."
           />
-        </div>
-
+      </div>
+  
         <!-- HAMBURGER MENU AND ICONS  -->
-
-        <div
-          class="flex flex-row items-center justify-center lg:mt-0 mt-4 gap-5"
-        >
+  
+        <div class="flex flex-row items-center justify-center lg:mt-0 mt-4 gap-5">
           <div class="lg:hidden flex items-center gap-5 text-gray-600 lg:mt-0">
-            <i
-              class="fa-solid fa-bars text-lg cursor-pointer hover:text-black"
-            ></i>
+            <i id="hamburger-menu" class="fa-solid fa-bars text-lg cursor-pointer hover:text-black"></i>
           </div>
-
-          <div class="flex items-center justify-center gap-5 text-gray-600">
+    
+          <div class="flex items-center justify-center gap-5 text-gray-600 ">
             <div class="relative">
               <div class="absolute bottom-5 left-3 z-50">
-                <div
-                  class="circle w-4 h-4 rounded-full bg-red-500 p-0.5 text-white text-xs text-center"
-                >
-                  5
-                </div>
+                  <div class="circle w-4 h-4 rounded-full bg-red-500 p-0.5 text-white text-xs text-center ">5</div>
               </div>
-              <i
-                class="fa-solid fa-cart-shopping text-lg cursor-pointer hover:text-black z-10 relative"
-              ></i>
-            </div>
-            <i
-              class="fa-solid fa-user text-lg cursor-pointer hover:text-black"
-            ></i>
+              <i class="fa-solid fa-cart-shopping text-lg cursor-pointer hover:text-black z-10 relative"></i>
           </div>
+            <i class="fa-solid fa-user text-lg cursor-pointer hover:text-black"></i>
+          </div>
+  
         </div>
+  
       </nav>
     </header>
 
-    <main>
+    <main class="">
+      <div id="shop-modal" class="bg-white p-8 w-full absolute top-0 right-0 md:w-full lg:w-1/4 lg:left-[19%] flex flex-col gap-5 hidden">
+        <ul >
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="casual-outfit" rel="noopener noreferrer">Casual Outfit</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="gym-outfit" rel="noopener noreferrer">Gym Outfit</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="party-outfit" rel="noopener noreferrer">Party Outfit</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="formal-outfit" rel="noopener noreferrer">Formal Outfit</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="perfume" rel="noopener noreferrer">Perfume</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="shoes" rel="noopener noreferrer">Shoes</a></li>
+        </ul>
+      </div>
+
       <span
-        class="p-20 mt-5 text-gray-500 cursor-pointer hover:text-black duration-150"
+        class="py-5 px-8 text-gray-500 cursor-pointer hover:text-black duration-150"
         >Home > Category</span
       >
-      <section class="w-full py-6 px-16 flex flex-row gap-5">
-        <div id="filter-setting" class="w-1/4 border rounded-xl h-auto p-5">
+      <section class="w-full p-3 lg:py-6 lg:px-16 flex flex-row gap-5">
+        <div id="filter-setting" class="w-1/4 border rounded-xl h-auto p-5 hidden lg:block">
 
           <div class="flex flex-row justify-between items-center border-b pb-5">
             <span class="text-lg font-semibold">Filters</span>
@@ -220,13 +204,108 @@
           </div>
         </div>
 
-        <div id="products" class="w-full bg-red-500 h-auto"></div>
+        <div id="products" class="w-full h-auto flex flex-col gap-5">
+
+          <div class="flex flex-row justify-around lg:justify-between items-center lg:mx-1 ">
+            <h2 class="font-bold text-2xl">Casual</h2>
+
+            <div class="flex flex-row gap-5 items-center">
+              <span class="text-gray-500 hidden lg:block">
+                Showing 1-10 of 100 Products
+              </span>
+
+              <span class="text-gray-500 hidden lg:block">
+                Sort by :
+                <select class="text-black p-1 cursor-pointer duration-150 bg-transparent outline-none" id="productSortSelect">  
+                  <option class="cursor-pointer" value="MostPopular">Most Popular</option>  
+                  <option class="cursor-pointer" value="Cheaper">Cheaper</option>  
+                  <option class="cursor-pointer" value="Expensive">Expensive</option>  
+                  <option class="cursor-pointer" value="Discount">Discount</option>  
+              </select>  
+              </span>
+
+              
+            </div>
+            <i class="fas fa-sliders text-gray-500 cursor-pointer block lg:!hidden hover:text-black"></i>
+
+          </div>
+
+          <div class="container mx-auto p-4">
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <!-- Product Card -->
+              <div class="product-card p-2 rounded flex flex-col gap-3 bg-white group relative overflow-hidden cursor-pointer">
+                <div class="w-full h-56 lg:h-80 relative">
+                  <!-- Image -->
+                  <img class="h-full w-full object-cover rounded-2xl transition-all duration-300 group-hover:brightness-75" 
+                       src="/assets/images/products-assets/300.webp" 
+                       alt="Polo with Tipping">
+                  
+                  <!-- Icons Overlay -->
+                  <div class="absolute inset-0 flex justify-center items-center gap-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <button class="bg-white h-9 w-9 rounded-full shadow-md hover:bg-gray-200">
+                      <i class="fas fa-shopping-basket text-gray-700"></i>
+                    </button>
+                    <button class="bg-white h-9 w-9 rounded-full shadow-md hover:bg-gray-200">
+                      <i class="fas fa-search text-gray-700"></i>
+                    </button>
+                    <button class="bg-white h-9 w-9 rounded-full shadow-md hover:bg-gray-200">
+                      <i class="fas fa-heart text-gray-700"></i>
+                    </button>
+                  </div>
+                </div>
+                
+                <!-- Product Info -->
+                <div class="flex flex-col gap-2">
+                  <h6 class="font-semibold text-lg">Polo with Tipping</h6>
+                  <div class="flex items-center">
+                    <div class="flex text-yellow-400">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="ml-2 text-gray-600">4.5/5</span>
+                  </div>
+                  <span class="font-bold text-xl">$166</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="flex flex-row justify-between items-center border-t py-5">
+            <div>
+              <button class="px-4 py-2 border outline-none rounded-xl text-gray-600 hover:text-black">
+                <i class="fa-solid fa-arrow-left"></i>
+                Privous
+              </button>
+            </div>
+
+            <div>
+              <button class="h-8 w-8 rounded-xl cursor-pointer text-gray-600 hover:text-black hover:bg-gray-200">1</button>
+              <button class="h-8 w-8 rounded-xl cursor-pointer text-gray-600 hover:text-black hover:bg-gray-200">2</button>
+              <button class="h-8 w-8 rounded-xl cursor-pointer text-gray-600 hover:text-black hover:bg-gray-200">3</button>
+              <button class="h-8 w-8 rounded-xl cursor-pointer text-gray-600 hover:text-black hover:bg-gray-200">4</button>
+              <button class="h-8 w-8 rounded-xl cursor-pointer text-gray-600 hover:text-black hover:bg-gray-200">5</button>
+            </div>
+
+            <div>
+              <button class="px-4 py-2 border outline-none rounded-xl text-gray-600 hover:text-black">
+                Next
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+          </div>
+          
+        </div>
+
       </section>
     </main>
 
     <div
-      class="flex flex-col lg:flex-row justify-around items-center p-5 bg-black rounded-xl w-[90%] mx-auto gap-4"
-    >
+      class="flex flex-col lg:flex-row justify-around items-center p-5 bg-black rounded-xl w-[90%] mx-auto gap-4">
       <div class="w-full lg:w-1/2 text-center">
         <h2 class="text-white font-bold text-2xl lg:text-4xl">
           STAY UP TO DATE ABOUT OUR LATEST OFFERS
@@ -386,5 +465,7 @@
       src="https://kit.fontawesome.com/febee2a18d.js"
       crossorigin="anonymous"
     ></script>
+    <script src="/assets/Scripts/main.js"></script>
+    <script src="/assets/Scripts/category.js"></script>
   </body>
 </html>

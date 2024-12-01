@@ -14,6 +14,7 @@
 body{
     width: auto;
     scroll-behavior: smooth;
+    transition: all 0.3s;
 }
 
 #hero-sec {  
@@ -54,3 +55,66 @@ body{
     background-color: black; 
     border: 1px solid white; /* Change text color to white when hovered */
 }
+
+#shop-modal {  
+    background: white;  
+    z-index: 100;  
+    transition: top 0.5s ease, opacity 0.8s ease; /* Add transition for smooth effect */  
+    opacity: 0; /* Start hidden */  
+    top: 0; /* Initial top position */  
+}
+
+
+#shop-modal.activeModal {  
+    opacity: 1;  
+}
+
+.icon {
+    display: inline-block;
+    transition: transform 0.3s ease; /* Smooth animation */
+  }
+  
+  .rotate-right {
+    transform: rotate(180deg); /* Rotate 90 degrees to the right */
+  }
+  
+  .rotate-left {
+    transform: rotate(0deg); /* Rotate 90 degrees to the left */
+  }
+  
+@media (min-width: 1024px) {
+    #shop-modal.activeModal {
+        top: 12%; 
+    }
+}
+
+@media (max-width: 1023px) { 
+    #shop-modal.activeModal {
+        top: 15%; 
+    }
+}
+
+@media (max-width: 767px) { 
+    #shop-modal.activeModal {
+        top: 27%; 
+    }
+}
+
+@media (max-width: 480px) {
+    #shop-modal.activeModal {
+        top: 25%;
+    }
+}
+
+@media (max-width: 360px){
+    #shop-modal.activeModal {
+        top: 30%; 
+    }
+}
+
+
+
+
+
+
+
