@@ -31,7 +31,6 @@ signupBtn.addEventListener("click", () => {
     newUserPasswordValue,
     adminstatorResult
   );
-
   loginStep.classList.remove("hidden");
   numberStep.classList.add("hidden");
   signupStep.classList.add("hidden");
@@ -58,6 +57,11 @@ loginBtn.addEventListener("click", () => {
   } else {
     console.log("Invalid username or password.");
   }
+});
+
+checkNumberBtn.addEventListener("click", () => {
+  const numberStepInputValue = document.getElementById("user-number").value;
+  getUserFromDatabase(parseFloat(numberStepInputValue));
 });
 
 async function editUserIsLogin(currUser) {
@@ -96,6 +100,7 @@ async function createNewUser(username, phoneNumber, password, adminstator) {
     password: password,
     adminstator: adminstator, // Note: corrected typo from 'adimnstator' to 'adminstator'
     isLogin: false,
+    profileimage,
   };
 
   await fetch(apiLink, {
@@ -114,10 +119,7 @@ async function createNewUser(username, phoneNumber, password, adminstator) {
   });
 }
 
-checkNumberBtn.addEventListener("click", () => {
-  const numberStepInputValue = document.getElementById("user-number").value;
-  getUserFromDatabase(parseFloat(numberStepInputValue));
-});
+
 
 async function getUserFromDatabase(number) {
   try {
