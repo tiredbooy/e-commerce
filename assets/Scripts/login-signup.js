@@ -100,7 +100,7 @@ async function createNewUser(username, phoneNumber, password, adminstator) {
     password: password,
     adminstator: adminstator, // Note: corrected typo from 'adimnstator' to 'adminstator'
     isLogin: false,
-    profileimage,
+    profileimage : null,
   };
 
   await fetch(apiLink, {

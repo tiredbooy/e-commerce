@@ -130,7 +130,7 @@
         </div>
         <div class="right w-full p-5 shadow-md rounded-xl">
 
-          <div id="admin" class="">
+          <div id="admin" class="hidden">
             <div id="dashboard-page" class="">
               <h2 class="font-extrabold text-4xl text-center">Dashboard</h2>
               <div class="flex flex-col gap-9 py-8">
@@ -459,7 +459,7 @@
               </form>
             </div>
 
-            <div id="my-order-page" class="">
+            <div id="my-order-page" class="hidden">
               <h2 class="text-3xl font-extrabold">My Orders</h2>
               <div id="order-cards" class="flex flex-col gap-2 py-5 px-3">
   
@@ -497,29 +497,46 @@
               </div>
             </div>
 
-            <div id="saved-address" class="hidden">
+            <div id="saved-address" class="">
               <div class="bg-white rounded-lg p-8 w-full max-w-4xl">
                 <h1 class="text-2xl font-bold text-gray-800 mb-6">Saved Addresses</h1>
             
                 <!-- Add New Address Button -->
                 <div class="mb-6 text-right">
                   <button type="button" 
+                    id="addNewAddressBtn"
                     class="px-6 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
                     + Add New Address
                   </button>
                 </div>
+
+                <div>
+                  <form action="" id="new-address-form" class="border p-5 rounded-xl flex flex-col gap-3 hidden">
+                      <select name="" id="selectAddressCategory" class="w-1/4 outline-none border px-4 py-2  rounded-xl">
+                        <option value="home">Home</option>
+                        <option value="work">Work</option>
+                      </select>
+                      <input type="text" id="receiverNameInput" placeholder="receiver Name" class="px-4 py-2 border rounded-xl outline-none focus:ring focus:ring-sky-400 focus:border-transparent duration-150 w-full">
+                      <input type="text" id="userCityInput" placeholder="city.." class="px-4 py-2 border rounded-xl outline-none focus:ring focus:ring-sky-400 focus:border-transparent duration-150 w-1/4">
+                      <input type="text" name="" id="userAddressInput" placeholder="address" class="px-4 py-2 border rounded-xl outline-none focus:ring focus:ring-sky-400 focus:border-transparent duration-150 w-full">
+                      <input type="text" name="" id="userZipcodeInput" placeholder="zipcode..." class="px-4 py-2 border rounded-xl outline-none focus:ring focus:ring-sky-400 focus:border-transparent duration-150 w-1/4">
+                      <input type="text" id="userCountryInput" placeholder="Country..." class="px-4 py-2 border rounded-xl outline-none focus:ring focus:ring-sky-400 focus:border-transparent duration-150 w-1/4">
+                    <button type="submit" class="border rounded-xl px-4 py-2 text-center bg-green-400 w-1/4 hover:bg-green-600 hover:text-white duration-150 hover:font-semibold">Add Address</button>
+                  </form>
+                </div>
             
                 <!-- Address Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div id="addressCardsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                   <!-- Address Card -->
-                  <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm">
+                  <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm flex flex-col text-gray-500 gap-3 hidden">
                     <h2 class="text-lg font-semibold text-gray-800">Home</h2>
-                    <p class="text-gray-600 mt-2">
-                      John Doe <br>
-                      123 Main Street, Apt 4B <br>
-                      New York, NY 10001 <br>
-                      USA
-                    </p>
+                    <div class="flex flex-col">
+                      <span>John Doe</span>
+                      <span>123 Main Street, Apt 4B </span>
+                      <span>New York, NY 10001</span>
+                      <span>USA</span>
+                    </div>
+
                     <div class="mt-4 flex items-center space-x-4">
                       <button type="button" 
                         class="text-sm px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:ring-2 focus:ring-green-400">
@@ -533,14 +550,15 @@
                   </div>
             
                   <!-- Another Address Card -->
-                  <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm">
+                  <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm flex flex-col text-gray-500 gap-3 hidden">
                     <h2 class="text-lg font-semibold text-gray-800">Work</h2>
-                    <p class="text-gray-600 mt-2">
-                      Jane Smith <br>
-                      456 Corporate Blvd, Suite 300 <br>
-                      Los Angeles, CA 90067 <br>
-                      USA
-                    </p>
+                    <div class="flex flex-col">
+                      <span>John Doe</span>
+                      <span>123 Main Street, Apt 4B </span>
+                      <span>New York, NY 10001</span>
+                      <span>USA</span>
+                    </div>
+
                     <div class="mt-4 flex items-center space-x-4">
                       <button type="button" 
                         class="text-sm px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:ring-2 focus:ring-green-400">
@@ -552,6 +570,7 @@
                       </button>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
