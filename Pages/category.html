@@ -24,11 +24,11 @@
         <ul class="hidden lg:flex items-center gap-8 text-gray-600 text-sm">
             <li id="shop-btn" class="flex items-center gap-1 cursor-pointer hover:text-black duration-150">
                 <span>Shop</span>
-                <i class="fa-solid fa-angle-down text-gray-500 hover:text-black"></i>
+                <i class="fa-solid fa-angle-down text-gray-500 hover:text-black shop-angle"></i>
             </li>
             <li class="cursor-pointer hover:text-black duration-150"><a href="">On Sale</a></li>
-            <li class="cursor-pointer hover:text-black duration-150"><a href="">New Arrivals</a></li>
-            <li class="cursor-pointer hover:text-black duration-150"><a href="">Brands</a></li>
+            <li class="cursor-pointer hover:text-black duration-150"><a href="#new-arrival">New Arrivals</a></li>
+            <li class="cursor-pointer hover:text-black duration-150"><a href="#brand-names">Brands</a></li>
         </ul>
   
         <!-- Search Bar (Mobile) -->
@@ -53,9 +53,9 @@
               <div class="absolute bottom-5 left-3 z-50">
                   <div class="circle w-4 h-4 rounded-full bg-red-500 p-0.5 text-white text-xs text-center ">5</div>
               </div>
-              <i class="fa-solid fa-cart-shopping text-lg cursor-pointer hover:text-black z-10 relative"></i>
+              <i id="shopping-basket-icon" class="fa-solid fa-cart-shopping text-lg cursor-pointer hover:text-black z-10 relative"></i>
           </div>
-            <i class="fa-solid fa-user text-lg cursor-pointer hover:text-black"></i>
+            <i id="profile-icon" class="fa-solid fa-user text-lg cursor-pointer hover:text-black"></i>
           </div>
   
         </div>
@@ -207,7 +207,7 @@
         <div id="products" class="w-full h-auto flex flex-col gap-5">
 
           <div class="flex flex-row justify-around lg:justify-between items-center lg:mx-1 ">
-            <h2 class="font-bold text-2xl">Casual</h2>
+            <h2 id="category-title" class="font-bold text-2xl">Casual</h2>
 
             <div class="flex flex-row gap-5 items-center">
               <span class="text-gray-500 hidden lg:block">

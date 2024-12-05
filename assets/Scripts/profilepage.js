@@ -20,8 +20,8 @@ const customerMenu = [
   "Logout",
 ];
 
+// Chart For Admin Dashboard
 const ctx = document.getElementById("myChart").getContext("2d");
-
 const myChart = new Chart(ctx, {
   type: "line",
   data: {
@@ -74,38 +74,48 @@ const myChart = new Chart(ctx, {
     },
   },
 });
+// End OF the Chart for admin dashboard
 
 //// Handle Icon For Making Page Smooth
 
 document.addEventListener("DOMContentLoaded", () => {
   let userId = localStorage.getItem("userID");
 
-  const imageUpload = document.getElementById("imageUpload");
   const productImages = document.getElementById("productImages");
   const imagePreview = document.getElementById("imagePreview");
   const submitImageUpload = document.querySelector("#submitImageUpload");
   let updateUserNameInput = document.getElementById("updateUserNameInput");
-  let updateUserPhoneNumInput = document.getElementById(
-    "updateUserPhoneNumInput"
-  );
-  let updateUserPasswordInput = document.getElementById(
-    "updateUserPasswordInput"
-  );
+  let updateUserPhoneNumInput = document.getElementById("updateUserPhoneNumInput");
+  let updateUserPasswordInput = document.getElementById("updateUserPasswordInput");
 
   const addNewAddressBtn = document.getElementById("addNewAddressBtn");
-  const selectAddressCategory = document.getElementById(
-    "selectAddressCategory"
-  );
+  const selectAddressCategory = document.getElementById("selectAddressCategory");
   const newAddressForm = document.getElementById("new-address-form");
-  const addressCardsContainer = document.getElementById(
-    "addressCardsContainer"
-  );
+  const addressCardsContainer = document.getElementById("addressCardsContainer");
   const receiverNameInput = document.getElementById("receiverNameInput");
   const userCityInput = document.getElementById("userCityInput");
   const userAddressInput = document.getElementById("userAddressInput");
   const userZipcodeInput = document.getElementById("userZipcodeInput");
   const userCountryInput = document.getElementById("userCountryInput");
   const submitAddressBtn = newAddressForm.querySelector("button");
+
+  const manageProductTable = document.getElementById('manage-product-table');
+  const moveToCreateProductBtn = document.getElementById('moveToCreateProductBtn');
+  const newProductContainer = document.getElementById('new-product-container')
+  const newProductNameInput = document.getElementById('productName');
+  const newProductDes = document.getElementById('productDescription');
+  const newProductPrice = document.getElementById('productPrice');
+  const newProductCategory = document.getElementById('productCategory');
+  const newProductStock = document.getElementById('productStock');
+  const imageUpload = document.getElementById("imageUpload");
+  const publishNewProductBtn = document.getElementById("publishNewProductBtn");
+  
+
+  moveToCreateProductBtn.addEventListener('click',() => {
+    newProductContainer.classList.remove('hidden')
+    moveToCreateProductBtn.classList.add('hidden')
+    manageProductTable.classList.add('hidden')
+  })
 
   imageUpload.addEventListener("click", () => productImages.click());
 
@@ -122,6 +132,18 @@ document.addEventListener("DOMContentLoaded", () => {
       reader.readAsDataURL(file);
     });
   });
+
+  publishNewProductBtn.addEventListener('click',() => {
+    const productName = newProductNameInput.value.trim();
+    const productDescription = newProductDes.value.trim();
+    const productPrice = parseFloat(newProductPrice.value.trim());
+    const productCategory = newProductCategory.value.trim();
+    const productStock = parseInt(newProductStock.value.trim());
+  })
+
+  function createNewProduct() {
+    
+  }
 
   iconAnimation();
 
@@ -180,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addNewAddressBtn.classList.add('hidden')
   });
 
+  //Create New Address 
   async function createNewAddress(
     addressCategory,
     reciverName,
@@ -188,19 +211,21 @@ document.addEventListener("DOMContentLoaded", () => {
     userZip,
     userCountry
   ) {
-    
-
     // Step 1: Fetch the existing data
     await fetch(
       `https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}/userAddresses.json`
     )
       .then((res) => res.json())
       .then((existingAddresses) => {
-        // Step 2: Merge the new address with existing addresses
+        // Step 2: Generate a unique addressId
+        const addressId = Date.now().toString();
+  
+        // Step 3: Merge the new address with existing addresses
         const updatedAddresses = {
           ...existingAddresses, // Spread existing addresses
           [addressCategory]: {
             // Add or update the selected category
+            addressId,
             reciverName,
             userCity,
             userAddress,
@@ -208,8 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
             userCountry,
           },
         };
-
-        // Step 3: Send the updated object back to Firebase
+  
+        // Step 4: Send the updated object back to Firebase
         return fetch(
           `https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}/userAddresses.json`,
           {
@@ -219,29 +244,36 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             body: JSON.stringify(updatedAddresses),
           }
-        );
+        ).then(() => addressId); // Return the addressId
       })
-      .then((res) => {
-        if (res.ok) {
-          console.log("Address added/updated successfully in the database");
-        } else {
-          console.log("Failed to add/update address in the database");
-        }
+      .then((addressId) => {
+        // Pass addressId to createAddressCard
+        createAddressCard(
+          addressCategory,
+          reciverName,
+          userCity,
+          userAddress,
+          userZip,
+          userCountry,
+          addressId
+        );
       })
       .catch((err) => console.error("Error:", err));
   }
+  
   // End of the function
 
+  // Confirm Address Button
   submitAddressBtn.addEventListener("click", (e) => {
     e.preventDefault();
-
+  
     let selectAddressCategoryValue = selectAddressCategory.value;
     let receiverNameInputValue = receiverNameInput.value.trim().toLowerCase();
     let userCityInputValue = userCityInput.value.trim().toLowerCase();
     let userAddressInputValue = userAddressInput.value.trim().toLowerCase();
     let userZipCodeValue = Number(userZipcodeInput.value);
     let userCountryInputValue = userCountryInput.value.trim().toLowerCase();
-
+  
     createNewAddress(
       selectAddressCategoryValue,
       receiverNameInputValue,
@@ -250,28 +282,25 @@ document.addEventListener("DOMContentLoaded", () => {
       userZipCodeValue,
       userCountryInputValue
     );
-
-    createAddressCard(selectAddressCategoryValue,
-      receiverNameInputValue,
-      userCityInputValue,
-      userAddressInputValue,
-      userZipCodeValue,
-      userCountryInputValue);
-      
-
-    addressCardsContainer.classList.remove('hidden');
-    newAddressForm.classList.add('hidden');
-    addNewAddressBtn.classList.remove('hidden')
-
+  
+    addressCardsContainer.classList.remove("hidden");
+    newAddressForm.classList.add("hidden");
+    addNewAddressBtn.classList.remove("hidden");
   });
 
-  function createAddressCard(addressCategory,
+  // Create Address Card And display it
+  function createAddressCard(
+    addressCategory,
     reciverName,
     userCity,
     userAddress,
     userZip,
-    userCountry) {
-    let addressCard = `<div class="p-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm flex flex-col text-gray-500 gap-3">
+    userCountry,
+    addressId,
+  ) {
+
+    // Create the card HTML
+    let addressCard = `<div class="p-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm flex flex-col text-gray-500 gap-3" data-id="${addressId}">
       <h2 class="text-lg font-semibold text-gray-800">${addressCategory.toUpperCase()}</h2>
       <div class="flex flex-col">
         <span>${reciverName}</span>
@@ -279,27 +308,27 @@ document.addEventListener("DOMContentLoaded", () => {
         <span>${userCity} , ${userZip}</span>
         <span>${userCountry.toUpperCase()}</span>
       </div>
-
+  
       <div class="mt-4 flex items-center space-x-4">
-        <button type="button"
-          class="text-sm px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:ring-2 focus:ring-green-400">
-          Edit
-        </button>
-        <button type="button"
-          class="text-sm px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:ring-2 focus:ring-red-400">
+        <button type="button" class="delete-btn text-sm px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:ring-2 focus:ring-red-400">
           Delete
         </button>
       </div>
-    </div>`
-
-    addressCardsContainer.insertAdjacentHTML('beforeend',addressCard);
+    </div>`;
+  
+    // Add the card to the container
+    addressCardsContainer.insertAdjacentHTML('beforeend', addressCard);
+    
+    // Generate a unique ID for the new address card
   }
 
+  // Load Adress From Database
   function loadAddressCards() {
     fetch(`https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}/userAddresses.json`)
       .then(res => res.json())
         .then((existingAddresses) => {
-          let existingAddressesArray = Object.entries(existingAddresses);
+          if(existingAddresses){
+            let existingAddressesArray = Object.entries(existingAddresses);
           existingAddressesArray.forEach(existingAddress => {
 
             createAddressCard(existingAddress[0],
@@ -307,15 +336,67 @@ document.addEventListener("DOMContentLoaded", () => {
               existingAddress[1].userCity,
               existingAddress[1].userAddress,
               existingAddress[1].userZip,
-              existingAddress[1].userCountry)
+              existingAddress[1].userCountry,
+              existingAddress[1].addressId)
 
           })
+          }else{
+            return
+          }
         })
   }
 
   loadAddressCards()
 
+  addressCardsContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-btn")) {
+      const cardElement = e.target.closest("[data-id]");
+      const addressId = cardElement.getAttribute("data-id");
+  
+      // Step 1: Remove from Firebase
+      deleteAddressFromDatabase(addressId)
+        .then(() => {
+          // Step 2: Remove from DOM
+          cardElement.remove();
+          console.log("Address deleted successfully!");
+        })
+        .catch((err) => {
+          console.error("Failed to delete address:", err);
+        });
+    }
+  });
+
+  async function deleteAddressFromDatabase(addressId) {
+    const url = `https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}/userAddresses.json`;
+  
+    // Fetch existing data to locate the correct address category
+    const existingAddresses = await fetch(url).then((res) => res.json());
+  
+    // Find the category containing the addressId
+    const addressCategory = Object.keys(existingAddresses).find(
+      (category) => existingAddresses[category].addressId === addressId
+    );
+  
+    if (!addressCategory) {
+      throw new Error("Address not found in database.");
+    }
+  
+    // Remove the address from the category
+    delete existingAddresses[addressCategory];
+  
+    // Update Firebase
+    return fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(existingAddresses),
+    });
+  }
+  
+
 });
+
 
 
 async function updateUser(imageUrl, userName, phoneNum, password) {

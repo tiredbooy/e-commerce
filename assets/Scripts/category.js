@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
             category.charAt(0).toUpperCase() + category.slice(1);
         // Update the document title
         title.textContent = formattedCategory; // Use textContent for clarity
+        document.getElementById('category-title').textContent = formattedCategory;
     }
 });
 
 
+// window.location.href = `/Pages/category.html?category=${category}`;
