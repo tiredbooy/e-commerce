@@ -1,7 +1,7 @@
 const $ = document;
 
 document.addEventListener("DOMContentLoaded", () => {
-  const shopBtn = $.getElementById("shop-btn");
+  const shopBtnSpan = $.querySelector("#shop-btn span");
   const shopModal = $.getElementById("shop-modal");
   const hamburgerMenu = $.getElementById("hamburger-menu");
   const bodyTag = $.querySelector("body");
@@ -16,21 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileIcon = $.getElementById('profile-icon')
   const shoppingBasketIcon = $.getElementById('shopping-basket-icon')
   
+  shopBtnSpan.addEventListener('click',() => {
+    window.location.href = `/Pages/category.html`;
+  })
 
-  shopBtn.addEventListener("click", () => {
-
+  shopBtnIcon.addEventListener("click", () => {
     if(!shopModal.classList.contains('activeModal')){
-      openModal();
-      // shopBtnIcon.classList.replace('fa-angle-down','fa-angle-up')
-      
+      openModal();    
     }else{
-      closeModal()
-      // shopBtnIcon.classList.replace('fa-angle-up','fa-angle-down')
-      
-
+      closeModal() 
     }
-
-    // 
   });
 
   hamburgerMenu.addEventListener("click", () => {

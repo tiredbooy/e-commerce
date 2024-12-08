@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cetegory</title>
-    <link rel="stylesheet" href="/assets/Css/tailwind.css" />
     <link rel="stylesheet" href="/assets/Css/styles.css" />
+    <link rel="stylesheet" href="/assets/Css/tailwind.css" />
   </head>
   <body>
     <header>
@@ -66,19 +66,15 @@
     <main class="">
       <div id="shop-modal" class="bg-white p-8 w-full absolute top-0 right-0 md:w-full lg:w-1/4 lg:left-[19%] flex flex-col gap-5 hidden">
         <ul >
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="casual-outfit" rel="noopener noreferrer">Casual Outfit</a></li>
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="gym-outfit" rel="noopener noreferrer">Gym Outfit</a></li>
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="party-outfit" rel="noopener noreferrer">Party Outfit</a></li>
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="formal-outfit" rel="noopener noreferrer">Formal Outfit</a></li>
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="perfume" rel="noopener noreferrer">Perfume</a></li>
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="" id="shoes" rel="noopener noreferrer">Shoes</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank" id="casual-outfit" rel="noopener noreferrer">Casual</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="gym-outfit" rel="noopener noreferrer">Gym</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="party-outfit" rel="noopener noreferrer">Party</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="formal-outfit" rel="noopener noreferrer">Formal</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="perfume" rel="noopener noreferrer">Perfume</a></li>
+          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="shoes" rel="noopener noreferrer">Shoes</a></li>
         </ul>
       </div>
 
-      <span
-        class="py-5 px-8 text-gray-500 cursor-pointer hover:text-black duration-150"
-        >Home > Category</span
-      >
       <section class="w-full p-3 lg:py-6 lg:px-16 flex flex-row gap-5">
         <div id="filter-setting" class="w-1/4 border rounded-xl h-auto p-5 hidden lg:block">
 
@@ -88,39 +84,6 @@
               class="fas fa-sliders text-gray-500 cursor-pointer hover:text-black"
             ></i>
           </div>
-
-          <ul class="py-5 flex flex-col gap-5 border-b">
-            <li class="flex flex-row justify-between items-center text-gray-500 hover:text-black duration-150">
-              <a class="" href="">T-shirts</a>
-              <i
-                class="fa-solid fa-angle-right  cursor-pointer"
-              ></i>
-            </li>
-            <li class="flex flex-row justify-between items-center text-gray-500 hover:text-black duration-150">
-              <a class="" href="">Shorts</a>
-              <i
-                class="fa-solid fa-angle-right  cursor-pointer"
-              ></i>
-            </li>
-            <li class="flex flex-row justify-between items-center text-gray-500 hover:text-black duration-150">
-              <a class="" href="">Shirts</a>
-              <i
-                class="fa-solid fa-angle-right  cursor-pointer"
-              ></i>
-            </li>
-            <li class="flex flex-row justify-between items-center text-gray-500 hover:text-black duration-150">
-              <a class="" href="">Hoodie</a>
-              <i
-                class="fa-solid fa-angle-right  cursor-pointer"
-              ></i>
-            </li>
-            <li class="flex flex-row justify-between items-center text-gray-500 hover:text-black duration-150">
-              <a class="" href="">Perfume</a>
-              <i
-                class="fa-solid fa-angle-right  cursor-pointer"
-              ></i>
-            </li>
-          </ul>
 
           <div class="flex flex-col gap-4 py-5 border-b">
 
@@ -231,16 +194,17 @@
           </div>
 
           <div class="container mx-auto p-4">
-            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div id="productCardContainer" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+
               <!-- Product Card -->
-              <div class="product-card p-2 rounded flex flex-col gap-3 bg-white group relative overflow-hidden cursor-pointer">
+              <!-- <div class="product-card p-2 rounded flex flex-col gap-3 bg-white group relative overflow-hidden cursor-pointer">
                 <div class="w-full h-56 lg:h-80 relative">
-                  <!-- Image -->
+                  
                   <img class="h-full w-full object-cover rounded-2xl transition-all duration-300 group-hover:brightness-75" 
                        src="/assets/images/products-assets/300.webp" 
                        alt="Polo with Tipping">
                   
-                  <!-- Icons Overlay -->
+                  
                   <div class="absolute inset-0 flex justify-center items-center gap-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <button class="bg-white h-9 w-9 rounded-full shadow-md hover:bg-gray-200">
                       <i class="fas fa-shopping-basket text-gray-700"></i>
@@ -254,24 +218,17 @@
                   </div>
                 </div>
                 
-                <!-- Product Info -->
+                
                 <div class="flex flex-col gap-2">
-                  <h6 class="font-semibold text-lg">Polo with Tipping</h6>
-                  <div class="flex items-center">
-                    <div class="flex text-yellow-400">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <span class="ml-2 text-gray-600">4.5/5</span>
-                  </div>
+                  <a href="" class="font-bold text-lg ">Polo with Tipping</a>
+                  <span class="text-gray-500">Product Description Here</span>
                   <span class="font-bold text-xl">$166</span>
                 </div>
-              </div>
+              </div> -->
 
             </div>
+            
+            <div id="loading" class="loader hidden"></div>
           </div>
 
           <div class="flex flex-row justify-between items-center border-t py-5">

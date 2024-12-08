@@ -110,7 +110,161 @@ body {
     /* Rotate 90 degrees to the left */
 }
 
+#product-success-div{
+    opacity: 0;
+}
 
+.product-success{
+    animation: product-success 1s forwards;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+}
+
+@keyframes product-success {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+
+.loader {
+    --w:10ch;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    line-height: 1.2em;
+    letter-spacing: var(--w);
+    width: var(--w);
+    overflow: hidden;
+    white-space: nowrap;
+    color: #0000;
+    animation: l17 2s infinite;
+  }
+  .loader:before {
+    content:"Loading...";
+  }
+  
+  @keyframes l17 {
+     0% {text-shadow: 
+          calc( 0*var(--w)) -1.2em #000,calc(-1*var(--w)) -1.2em #000,calc(-2*var(--w)) -1.2em #000,calc(-3*var(--w)) -1.2em #000,calc(-4*var(--w)) -1.2em #000, 
+          calc(-5*var(--w)) -1.2em #000,calc(-6*var(--w)) -1.2em #000,calc(-7*var(--w)) -1.2em #000,calc(-8*var(--w)) -1.2em #000,calc(-9*var(--w)) -1.2em #000}
+     4% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) -1.2em #000,calc(-2*var(--w)) -1.2em #000,calc(-3*var(--w)) -1.2em #000,calc(-4*var(--w)) -1.2em #000, 
+          calc(-5*var(--w)) -1.2em #000,calc(-6*var(--w)) -1.2em #000,calc(-7*var(--w)) -1.2em #000,calc(-8*var(--w)) -1.2em #000,calc(-9*var(--w)) -1.2em #000}
+     8% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) -1.2em #000,calc(-3*var(--w)) -1.2em #000,calc(-4*var(--w)) -1.2em #000, 
+          calc(-5*var(--w)) -1.2em #000,calc(-6*var(--w)) -1.2em #000,calc(-7*var(--w)) -1.2em #000,calc(-8*var(--w)) -1.2em #000,calc(-9*var(--w)) -1.2em #000}
+    12% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) -1.2em #000,calc(-4*var(--w)) -1.2em #000, 
+          calc(-5*var(--w)) -1.2em #000,calc(-6*var(--w)) -1.2em #000,calc(-7*var(--w)) -1.2em #000,calc(-8*var(--w)) -1.2em #000,calc(-9*var(--w)) -1.2em #000}
+    16% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) -1.2em #000, 
+          calc(-5*var(--w)) -1.2em #000,calc(-6*var(--w)) -1.2em #000,calc(-7*var(--w)) -1.2em #000,calc(-8*var(--w)) -1.2em #000,calc(-9*var(--w)) -1.2em #000}
+    20% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 0      #000, 
+          calc(-5*var(--w)) -1.2em #000,calc(-6*var(--w)) -1.2em #000,calc(-7*var(--w)) -1.2em #000,calc(-8*var(--w)) -1.2em #000,calc(-9*var(--w)) -1.2em #000}
+    24% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 0      #000, 
+          calc(-5*var(--w)) 0      #000,calc(-6*var(--w)) -1.2em #000,calc(-7*var(--w)) -1.2em #000,calc(-8*var(--w)) -1.2em #000,calc(-9*var(--w)) -1.2em #000}
+    28% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 0      #000, 
+          calc(-5*var(--w)) 0      #000,calc(-6*var(--w)) 0      #000,calc(-7*var(--w)) -1.2em #000,calc(-8*var(--w)) -1.2em #000,calc(-9*var(--w)) -1.2em #000}
+    32% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 0      #000, 
+          calc(-5*var(--w)) 0      #000,calc(-6*var(--w)) 0      #000,calc(-7*var(--w)) 0      #000,calc(-8*var(--w)) -1.2em #000,calc(-9*var(--w)) -1.2em #000}
+    36% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 0      #000, 
+          calc(-5*var(--w)) 0      #000,calc(-6*var(--w)) 0      #000,calc(-7*var(--w)) 0      #000,calc(-8*var(--w)) 0      #000,calc(-9*var(--w)) -1.2em #000}
+    40%,
+    60% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 0      #000, 
+          calc(-5*var(--w)) 0      #000,calc(-6*var(--w)) 0      #000,calc(-7*var(--w)) 0      #000,calc(-8*var(--w)) 0      #000,calc(-9*var(--w)) 0      #000}
+    64% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 0      #000, 
+          calc(-5*var(--w)) 0      #000,calc(-6*var(--w)) 0      #000,calc(-7*var(--w)) 0      #000,calc(-8*var(--w)) 0      #000,calc(-9*var(--w)) 1.2em  #000}
+    68% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 0      #000, 
+          calc(-5*var(--w)) 0      #000,calc(-6*var(--w)) 0      #000,calc(-7*var(--w)) 0      #000,calc(-8*var(--w)) 1.2em  #000,calc(-9*var(--w)) 1.2em  #000}
+    72% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 0      #000, 
+          calc(-5*var(--w)) 0      #000,calc(-6*var(--w)) 0      #000,calc(-7*var(--w)) 1.2em  #000,calc(-8*var(--w)) 1.2em  #000,calc(-9*var(--w)) 1.2em  #000}
+    76% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 0      #000, 
+          calc(-5*var(--w)) 0      #000,calc(-6*var(--w)) 1.2em  #000,calc(-7*var(--w)) 1.2em  #000,calc(-8*var(--w)) 1.2em  #000,calc(-9*var(--w)) 1.2em  #000}
+    80% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 0      #000, 
+          calc(-5*var(--w)) 1.2em  #000,calc(-6*var(--w)) 1.2em  #000,calc(-7*var(--w)) 1.2em  #000,calc(-8*var(--w)) 1.2em  #000,calc(-9*var(--w)) 1.2em  #000}
+    84% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 0      #000,calc(-4*var(--w)) 1.2em  #000, 
+          calc(-5*var(--w)) 1.2em  #000,calc(-6*var(--w)) 1.2em  #000,calc(-7*var(--w)) 1.2em  #000,calc(-8*var(--w)) 1.2em  #000,calc(-9*var(--w)) 1.2em  #000}
+    88% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 0      #000,calc(-3*var(--w)) 1.2em  #000,calc(-4*var(--w)) 1.2em  #000, 
+          calc(-5*var(--w)) 1.2em  #000,calc(-6*var(--w)) 1.2em  #000,calc(-7*var(--w)) 1.2em  #000,calc(-8*var(--w)) 1.2em  #000,calc(-9*var(--w)) 1.2em  #000}
+    92% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 0      #000,calc(-2*var(--w)) 1.2em  #000,calc(-3*var(--w)) 1.2em  #000,calc(-4*var(--w)) 1.2em  #000, 
+          calc(-5*var(--w)) 1.2em  #000,calc(-6*var(--w)) 1.2em  #000,calc(-7*var(--w)) 1.2em  #000,calc(-8*var(--w)) 1.2em  #000,calc(-9*var(--w)) 1.2em  #000}
+    96% {text-shadow: 
+          calc( 0*var(--w)) 0      #000,calc(-1*var(--w)) 1.2em  #000,calc(-2*var(--w)) 1.2em  #000,calc(-3*var(--w)) 1.2em  #000,calc(-4*var(--w)) 1.2em  #000, 
+          calc(-5*var(--w)) 1.2em  #000,calc(-6*var(--w)) 1.2em  #000,calc(-7*var(--w)) 1.2em  #000,calc(-8*var(--w)) 1.2em  #000,calc(-9*var(--w)) 1.2em  #000}
+    100% {text-shadow: 
+          calc( 0*var(--w)) 1.2em  #000,calc(-1*var(--w)) 1.2em  #000,calc(-2*var(--w)) 1.2em  #000,calc(-3*var(--w)) 1.2em  #000,calc(-4*var(--w)) 1.2em  #000, 
+          calc(-5*var(--w)) 1.2em  #000,calc(-6*var(--w)) 1.2em  #000,calc(-7*var(--w)) 1.2em  #000,calc(-8*var(--w)) 1.2em  #000,calc(-9*var(--w)) 1.2em  #000}
+  }
+
+  /* Out of Stock Parent Class */
+.out-of-stock {
+    position: relative; /* Ensure position for overlay placement */
+    pointer-events: none; /* Disable all interactions */
+    opacity: 0.7; /* Dim the entire card */
+  }
+  
+  /* Overlay for Out of Stock */
+  .out-of-stock::after {
+    content: "Out of Stock"; /* Display 'Out of Stock' text */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure it appears above the content */
+    background: rgba(0, 0, 0, 0.75); /* Semi-transparent black background */
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+  }
+  
+  /* Optional: Grayscale the image */
+  .out-of-stock img {
+    filter: grayscale(50%);
+  }
+  
+  /* Optional: Style text (grayed out) */
+  .out-of-stock .font-bold,
+  .out-of-stock .text-gray-500 {
+    color: #9ca3af; /* Light gray to indicate unavailability */
+  }
+
+  .outOfStockSize{
+     background: transparent;
+     border: 1px solid rgb(105, 105, 105);
+     text-decoration: line-through;
+  }
+
+  .outOfStockSize:hover{
+     background: transparent;
+     border: 1px solid black;
+     color: #555;
+  }
+
+
+  
 
 
 
