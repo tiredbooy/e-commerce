@@ -14,7 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalItems = $.querySelectorAll("#shop-modal li");
   const shopBtnIcon = $.querySelector('#shop-btn i');
   const profileIcon = $.getElementById('profile-icon')
-  const shoppingBasketIcon = $.getElementById('shopping-basket-icon')
+  const shoppingBasketIcon = $.getElementById('shopping-basket-icon');
+  const shoppingBasketLength = $.getElementById('shopping-basket-length');
+  
+  loadProductCountInBasket()
+  
   
   shopBtnSpan.addEventListener('click',() => {
     window.location.href = `/Pages/category.html`;
@@ -89,6 +93,14 @@ shoppingBasketIcon.addEventListener('click',() => {
   location.href ='/Pages/cart.html'
 })
 
-
+function loadProductCountInBasket() {
+  let productInShoppingBasket = JSON.parse(localStorage.getItem('shoppingBasket'));
+  if(productInShoppingBasket){
+    shoppingBasketLength.innerHTML = productInShoppingBasket.length;
+  }
+}
+loadProductCountInBasket()
 
 });
+
+

@@ -51,7 +51,7 @@
           <div class="flex items-center justify-center gap-5 text-gray-600 ">
             <div class="relative">
               <div class="absolute bottom-5 left-3 z-50">
-                  <div class="circle w-4 h-4 rounded-full bg-red-500 p-0.5 text-white text-xs text-center ">5</div>
+                  <div id="shopping-basket-length" class="circle w-4 h-4 rounded-full bg-red-500 p-0.5 text-white text-xs text-center ">5</div>
               </div>
               <i id="shopping-basket-icon" class="fa-solid fa-cart-shopping text-lg cursor-pointer hover:text-black z-10 relative"></i>
           </div>
@@ -80,11 +80,12 @@
       <section id="shopping-cart" class="p-0 lg:p-5">
         <div class="container mx-auto">
           <h1 class="font-extrabold text-2xl ml-3 mt-3 lg:text-3xl">YOUR CART</h1>
+
           <div class="flex flex-col lg:flex-row gap-5 mt-2 mx-auto">
             <!-- Left Container: Shopping Basket -->
-            <div class="p-4 w-full lg:w-2/3 flex flex-col gap-4 border rounded-2xl">
+            <div class="productsContainer p-4 w-full lg:w-2/3 flex flex-col gap-4 border rounded-2xl">
               <!-- Product Card 1 -->
-              <div
+              <!-- <div
                 class="flex flex-row justify-between items-center border-b pb-4"
               >
                 <div class="flex flex-row gap-4 items-center w-2/3">
@@ -117,10 +118,10 @@
                     <button class="px-3 py-1 text-gray-600">+</button>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Repeatable Product Card Structure -->
-              <div
+              <!-- <div
                 class="flex flex-row justify-between items-center border-b pb-4"
               >
                 <div class="flex flex-row gap-4 items-center w-2/3">
@@ -153,10 +154,10 @@
                     <button class="px-3 py-1 text-gray-600">+</button>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Product Card 3 -->
-              <div
+              <!-- <div
                 class="flex flex-row justify-between items-center border-b pb-4"
               >
                 <div class="flex flex-row gap-4 items-center w-2/3">
@@ -189,7 +190,7 @@
                     <button class="px-3 py-1 text-gray-600">+</button>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
 
             <!-- Right Container: Order Summary -->
@@ -246,6 +247,7 @@
               </button>
             </div>
           </div>
+          
         </div>
       </section>
     </main>
@@ -413,5 +415,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="/assets/Scripts/main.js"></script>
+    <script src="/assets/Scripts/cart.js"></script>
   </body>
 </html>

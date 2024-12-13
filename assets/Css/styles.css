@@ -263,6 +263,53 @@ body {
      color: #555;
   }
 
+  .sideImages:hover{
+    transform: scale(1.2);
+  }
+
+  .mainProductImageContainer {
+    position: relative;
+    overflow: hidden; /* Ensure the zoomed image stays inside the container */
+  }
+  
+  /* Main product image */
+  .mainProductImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Smooth zoom animation */
+    transform-origin: center center; /* Default zoom origin */
+  }
+  
+  /* Add a zoom effect on hover */
+  .mainProductImageContainer:hover .mainProductImage {
+    transform: scale(1.2); /* Zoom in by 2x */
+    transform-origin: center center; /* Zoom origin remains the same */
+    cursor: pointer; /* Change cursor to a magnifying glass */
+    z-index: 10; /* Ensure the zoomed image stays above the content */
+
+  }
+
+
+  .animate-pulse {  
+    animation: shake 0.5s forwards, fadeOut 1s forwards 0.5s; /* Shake and fade out */  
+    color: green;
+}  
+
+@keyframes shake {  
+    0% { transform: translate(0); }  
+    25% { transform: translate(-5px, 0); }  
+    50% { transform: translate(5px, 0); }  
+    75% { transform: translate(-5px, 0); }  
+    100% { transform: translate(0); }  
+}  
+
+@keyframes fadeOut {  
+    0% { opacity: 1; }  
+    100% { opacity: 0; }  
+}  
+
+  
 
   
 

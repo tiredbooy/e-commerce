@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const apiLink =
     "https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/users.json";
   const menuItemContainer = document.getElementById("menuItemContainer");
@@ -142,11 +143,11 @@ document.addEventListener("DOMContentLoaded", () => {
         dataArray.forEach((item) => {
           let productData = item[1];
 
-          const tableInnerHtml = `<tr class="bg-white hover:bg-gray-50">  
-          <td class="py-3 px-4 border border-gray-300">${productData.productName}</td>  
-          <td class="py-3 px-4 border border-gray-300">${productData.productStock}</td>  
-          <td class="py-3 px-4 border border-gray-300">$${productData.productPrice}</td>  
-          <td class="py-3 px-4 border border-gray-300">${productData.sales}</td>  
+          const tableInnerHtml = `<tr class="bg-white hover:bg-gray-50">
+          <td class="py-3 px-4 border border-gray-300">${productData.productName}</td>
+          <td class="py-3 px-4 border border-gray-300">${productData.productStock}</td>
+          <td class="py-3 px-4 border border-gray-300">$${productData.productPrice}</td>
+          <td class="py-3 px-4 border border-gray-300">${productData.sales}</td>
           </tr>  `;
 
           manageProductTableTbody.insertAdjacentHTML(
@@ -191,20 +192,20 @@ document.addEventListener("DOMContentLoaded", () => {
       uploadedImageUrls.push({ name: file.name, url: dataURL }); // Store image name and DataURL
     }
   });
- 
 
   // Handle publish button click
   publishNewProductBtn.addEventListener("click", async () => {
-    const productName = newProductNameInput.value.trim();
+    const productName = newProductNameInput.value.trim().toLowerCase();
     const productDescription = newProductDes.value.trim();
     const productPrice = parseFloat(newProductPrice.value.trim());
     const productCategory = newProductCategory.value.trim();
     const productStock = parseInt(newProductStock.value.trim());
-    const sizes = document.getElementById("productSizes").value.split(",");
+    const size = document.getElementById("productSizes").value.split(",");
+    const colors = document.getElementById('productColors').value.split(",");
     console.log("Available Sizes:", sizes); // Outputs the sizes as an array
 
-    let date = new Date();  
-    let formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;  
+    let date = new Date();
+    let formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
 
     if (!productName || !productPrice || !productCategory || !productStock) {
       alert("Please fill in all required fields.");
@@ -221,10 +222,11 @@ document.addEventListener("DOMContentLoaded", () => {
       productImages: uploadedImageUrls, // Include DataURLs for images
       sales: 0,
       dateAdded : formattedDate ,
-      sizes, // Include sizes as an array for easy retrieval and display in the frontend
+      sizes : {
+        size
+      }, // Include sizes as an array for easy retrieval and display in the frontend
+      colors,
     };
-
-
 
     alert("uploading product please wait!!");
 
@@ -232,9 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // product-success
 
     // Replace spaces with underscores or remove them to make it a valid Firebase key
-    const productKey = productName.replace(/\s+/g, "_");
-
-    
+    const productKey = productName.toLowerCase().replace(/\s+/g, "_");
 
     try {
       const response = await fetch(
@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
       newProductPrice.value = '';
       newProductCategory.value = '';
       newProductStock.value = '';
-    
+
       let successDiv = document.getElementById("product-success-div");
       successDiv.classList.add("product-success");
       setTimeout(() => {
@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // newProductContainer.classList.add("hidden");
         // moveToCreateProductBtn.classList.remove("hidden");
         // manageProductTable.classList.remove("hidden");
-        
+
         loadProductInTable();
       }, 2000);
     } catch (error) {
@@ -434,7 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span>${userCity} , ${userZip}</span>
         <span>${userCountry.toUpperCase()}</span>
       </div>
-  
+
       <div class="mt-4 flex items-center space-x-4">
         <button type="button" class="delete-btn text-sm px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:ring-2 focus:ring-red-400">
           Delete
@@ -606,9 +606,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Create menu items based on user role
     adminstatorResult.forEach((item) => {
-      let html = `<li class="flex flex-row items-center justify-between text-gray-300 hover:text-white duration-150 cursor-pointer menu-item ${userRole}-menu">  
-        <a href="javascript:void(0);" class="menu-link">${item}</a>  
-        <i class="icon fas fa-angle-right"></i>  
+      let html = `<li class="flex flex-row items-center justify-between text-gray-300 hover:text-white duration-150 cursor-pointer menu-item ${userRole}-menu">
+        <a href="javascript:void(0);" class="menu-link">${item}</a>
+        <i class="icon fas fa-angle-right"></i>
       </li>`;
 
       menuItemContainer.insertAdjacentHTML("beforeend", html);
