@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // productCardContainer.classList.remove('hidden')
 
         // Cache the fetched data in localStorage
+        
         let productsArray = {...data}
         localStorage.setItem("products", JSON.stringify(productsArray));
 
@@ -143,6 +144,8 @@ function addToShoppingBasket(event,productTitle){
   let shoppingBasket = {
     productName : productTitle,
     quantity : 1,
+    color : 'white',
+    size: 'L'
   }
 
   let savedBasket = JSON.parse(localStorage.getItem('shoppingBasket')) || [];
@@ -150,7 +153,7 @@ function addToShoppingBasket(event,productTitle){
 
   localStorage.setItem('shoppingBasket', JSON.stringify(savedBasket));
 
-  
+  loadProductCountInBasket(savedBasket)
 }
 
 function addToFavorit(event,productTitle){
@@ -158,4 +161,14 @@ function addToFavorit(event,productTitle){
   // event.target.classLIst.replace('text-gray-700','text-red-500')
   heartBtn.classList.toggle('text-red-500')
   heartBtn.classList.toggle('text-gray-700')
+}
+
+function loadProductCountInBasket(basket) {
+  const shoppingBasketLength = $.getElementById('shopping-basket-length');
+  // let productInShoppingBasket = JSON.parse(localStorage.getItem('shoppingBasket'));
+  shoppingBasketLength.style.display = 'none';
+  if(basket){
+    shoppingBasketLength.style.display = 'block';
+    shoppingBasketLength.innerHTML = basket.length;
+  }
 }

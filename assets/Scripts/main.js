@@ -94,8 +94,10 @@ shoppingBasketIcon.addEventListener('click',() => {
 })
 
 function loadProductCountInBasket() {
+  shoppingBasketLength.style.display = 'none';
   let productInShoppingBasket = JSON.parse(localStorage.getItem('shoppingBasket'));
   if(productInShoppingBasket){
+    shoppingBasketLength.style.display = 'block';
     shoppingBasketLength.innerHTML = productInShoppingBasket.length;
   }
 }
