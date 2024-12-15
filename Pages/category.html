@@ -93,9 +93,9 @@
             </div>
 
             <div class="flex flex-row items-center justify-between">
-              <input type="number" min="1" max="499" class="p-2 text-center rounded-lg border outline-none w-1/3" placeholder="$">
+              <input id="minPriceInput" type="number" min="1" max="499" class="p-2 text-center rounded-lg border outline-none w-1/3" placeholder="$">
               <span>To</span>
-              <input type="number" min="1" max="500" class="p-2 text-center rounded-lg border outline-none w-1/3" placeholder="$">
+              <input id="maxPriceInput" type="number" min="1" max="500" class="p-2 text-center rounded-lg border outline-none w-1/3" placeholder="$">
             </div>
           </div>
 
@@ -107,16 +107,16 @@
             </div>
 
             <div id="colors" class="flex flex-wrap gap-3 items-center justify-center pt-5">
-              <div class="w-8 h-8 rounded-full bg-red-500 border cursor-pointer"></div>
-              <div class="w-8 h-8 rounded-full bg-green-500 border cursor-pointer"></div>
-              <div class="w-8 h-8 rounded-full bg-yellow-500 border cursor-pointer"></div>
-              <div class="w-8 h-8 rounded-full bg-sky-400  border cursor-pointer"></div>
-              <div class="w-8 h-8 rounded-full bg-purple-500 border cursor-pointer"></div>
-              <div class="w-8 h-8 rounded-full bg-pink-500 border cursor-pointer"></div>
-              <div class="w-8 h-8 rounded-full bg-orange-500 border cursor-pointer"></div>
-              <div class="w-8 h-8 rounded-full bg-blue-800  border cursor-pointer"></div>
-              <div class="w-8 h-8 rounded-full bg-white border cursor-pointer"></div>
-              <div class="w-8 h-8 rounded-full bg-black border cursor-pointer"></div>
+              <div data-color="red" class="w-8 h-8 rounded-full bg-red-500 border cursor-pointer colorBtns"></div>
+              <div data-color="green" class="w-8 h-8 rounded-full bg-green-500 border cursor-pointer colorBtns"></div>
+              <div data-color="yellow" class="w-8 h-8 rounded-full bg-yellow-500 border cursor-pointer colorBtns"></div>
+              <div data-color="sky" class="w-8 h-8 rounded-full bg-sky-400  border cursor-pointer colorBtns"></div>
+              <div data-color="purple" class="w-8 h-8 rounded-full bg-purple-500 border cursor-pointer colorBtns"></div>
+              <div data-color="pink" class="w-8 h-8 rounded-full bg-pink-500 border cursor-pointer colorBtns"></div>
+              <div data-color="orange" class="w-8 h-8 rounded-full bg-orange-500 border cursor-pointer colorBtns"></div>
+              <div data-color="blue" class="w-8 h-8 rounded-full bg-blue-800  border cursor-pointer colorBtns"></div>
+              <div data-color="white" class="w-8 h-8 rounded-full bg-white border cursor-pointer colorBtns"></div>
+              <div data-color="black" class="w-8 h-8 rounded-full bg-black border cursor-pointer colorBtns"></div>
             </div>
 
           </div>
@@ -129,11 +129,10 @@
             </div>
 
             <div class="flex flex-wrap gap-2 items-center justify-center">
-              <div class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150">Small</div>
-              <div class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150">Medium</div>
-              <div class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150">Large</div>
-              <div class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150">X-Large</div>
-              <div class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150">2X-Large</div>
+              <div data-size="S" class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150 sizeBtns">S</div>
+              <div data-size="M" class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150 sizeBtns">M</div>
+              <div data-size="L" class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150 sizeBtns">L</div>
+              <div data-size="XL" class="py-2 px-3 border bg-gray-200 text-gray-500 rounded-2xl cursor-pointer hover:bg-black hover:text-white duration-150 sizeBtns">XL</div>
             </div>
           </div>
 
@@ -142,28 +141,36 @@
               <span>Style</span>
               <i class="fas fa-angle-up"></i>
             </div>
-            <ul class="flex flex-col gap-2 py-5">
-              <li class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
-                <a href="">Casual</a>
+            <ul id="filterCategories" class="flex flex-col gap-2 py-5">
+              <li data-category="casual" class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
+                <a href="javascript:void(0)">Casual</a>
                 <i class="fas fa-angle-right"></i>
               </li>
-              <li class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
-                <a href="">Formal</a>
+              <li data-category="formal" class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
+                <a href="javascript:void(0)">Formal</a>
                 <i class="fas fa-angle-right"></i>
               </li>
-              <li class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
-                <a href="">Party</a>
+              <li data-category="party" class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
+                <a href="javascript:void(0)">Party</a>
                 <i class="fas fa-angle-right"></i>
               </li>
-              <li class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
-                <a href="">Gym</a>
+              <li data-category="gym" class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
+                <a href="javascript:void(0)">Gym</a>
+                <i class="fas fa-angle-right"></i>
+              </li>
+              <li data-category="perfume" class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
+                <a href="javascript:void(0)">Perfume</a>
+                <i class="fas fa-angle-right"></i>
+              </li>
+              <li data-category="shoes" class="text-gray-500 cursor-pointer hover:text-black flex flex-row justify-between items-center text-sm duration-150">
+                <a href="javascript:void(0)">Shoes</a>
                 <i class="fas fa-angle-right"></i>
               </li>
             </ul>
           </div>
 
           <div class="text-center">
-            <button class="py-2 px-8 bg-black text-white rounded-2xl text-center">Apply Filter</button>
+            <button id="applyFilterBtn" class="py-2 px-8 bg-black text-white rounded-2xl text-center">Apply Filter</button>
           </div>
         </div>
 

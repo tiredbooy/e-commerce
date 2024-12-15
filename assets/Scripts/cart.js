@@ -1,22 +1,59 @@
 // Selectors and Initial Setup
 const productsContainer = document.querySelector(".productsContainer");
 let productBasket = JSON.parse(localStorage.getItem("shoppingBasket")) || [];
+const localSavedProducts = JSON.parse(localStorage.getItem("products"));
+const checkoutBtn = document.getElementById('checkoutBtn');
+
 
 // Render Products in Basket
 const renderProducts = () => {
   productsContainer.innerHTML = ""; // Clear the container
-  const validProducts =
-    JSON.parse(localStorage.getItem("shoppingBasket")) || [];
-  productBasket = validProducts; // Sync the global state with localStorage
-  validProducts.forEach((item) => {
-    const productID = item.productName.replace(/\s+/g, "_"); // Generate productID
-    fetchProductDetails(productID, item);
-  });
+  
+  
+    if(productBasket){
+      const validProducts =
+      JSON.parse(localStorage.getItem("shoppingBasket")) || [];
+      productBasket = validProducts; // Sync the global state with localStorage
+      validProducts.forEach((item) => {
+      const productID = item.productName.replace(/\s+/g, "_"); // Generate productID
+      fetchProductDetails(productID, item);
+      });
+    }
 };
 
 let productPricesArray = [];
+
+
 // Fetch Product Details
 const fetchProductDetails = async (productID, basketItem) => {
+  let productTotalPrice ;
+
+  if(localSavedProducts){
+    let data = Object.entries(localSavedProducts);
+    let filteredProductFromLocal = data.filter(
+      ([name, info]) => name === productID
+    );
+    filteredProductFromLocal.forEach(product => {
+      let {
+          productImages,
+          productName,
+          productPrice,
+        } = product[1];
+
+        productTotalPrice = productPrice * basketItem.quantity;
+        productPricesArray.push(productTotalPrice);
+        calculateTotalPrice(productPricesArray);
+
+        createDomCard(
+          productImages[0].url,
+          productName,
+          basketItem.size,
+          basketItem.color,
+          productPrice,
+          basketItem.quantity
+        );
+      })
+  }else{
   try {
     // Display a loading indicator
     showLoadingIndicator();
@@ -27,7 +64,7 @@ const fetchProductDetails = async (productID, basketItem) => {
     if (!response.ok) throw new Error(`Failed to fetch product: ${productID}`);
 
     const data = await response.json();
-    let productTotalPrice = data.productPrice * basketItem.quantity;
+    productTotalPrice =  data.productPrice * basketItem.quantity;
 
     // Check if the product is still in the basket
     const isStillInBasket = productBasket.some(
@@ -54,6 +91,7 @@ const fetchProductDetails = async (productID, basketItem) => {
     console.error("Error fetching product details:", error.message);
     hideLoadingIndicator();
   }
+  }//End of condition
 };
 
 // Create Product DOM Card
@@ -242,3 +280,52 @@ function loadProductCountInBasket(basket) {
 
 // Initial Render
 renderProducts();
+
+function checkOut(){
+  
+  productBasket.forEach(product => {
+    const productID = product.productName.replace(/\s+/g, "_"); // Generate productID
+    console.log(`${productID} Has ${product.quantity} Quantity`);
+    
+    fetch(`https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productID}.json`)
+      .then(res => res.json())
+        .then(data => {
+          let findedProductArray = Object.entries({data});
+
+          findedProductArray.forEach(item => {
+            let productSales = item[1].sales + product.quantity;
+            fetch(`https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productID}.json`, {
+              method: 'PATCH',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                sales: productSales
+              })
+            }).then(res => {
+              if(res.ok) {
+                console.log('Sales updated successfully');
+              }else{
+                console.error('Failed to update sales');
+              }
+            })
+
+          })
+        })
+
+        .catch(err => console.error('Error:', err));
+
+        
+
+        localStorage.removeItem('shoppingBasket');
+        loadProductCountInBasket([]);
+        renderProducts();
+
+  })
+}
+
+
+
+checkoutBtn.addEventListener('click',() => {
+  checkOut();
+})

@@ -307,20 +307,6 @@ function recommendProducts(currentProductCategory) {
       ([name, info]) => info.productCategory === currentProductCategory
     );
 
-    // let {
-    //   productImages,
-    //   productName,
-    //   productPrice,
-    //   productDescription,
-    // } = filteredProductFromLocal[1];
-
-    // createRecommendProductsDom(
-    //   productImages[0].url,
-    //   productName,
-    //   productDescription,
-    //   productPrice
-    // )
-    // console.log(filteredProductFromLocal[1]);
     filteredProductFromLocal.forEach(product => {
       let {
           productImages,

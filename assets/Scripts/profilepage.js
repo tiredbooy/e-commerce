@@ -201,8 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const productCategory = newProductCategory.value.trim();
     const productStock = parseInt(newProductStock.value.trim());
     const size = document.getElementById("productSizes").value.split(",");
-    const colors = document.getElementById('productColors').value.split(",");
-    console.log("Available Sizes:", sizes); // Outputs the sizes as an array
+    const color = document.getElementById('productColors').value.split(",");
 
     let date = new Date();
     let formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
@@ -225,7 +224,9 @@ document.addEventListener("DOMContentLoaded", () => {
       sizes : {
         size
       }, // Include sizes as an array for easy retrieval and display in the frontend
-      colors,
+      colors : {
+        color
+      },
     };
 
     alert("uploading product please wait!!");
