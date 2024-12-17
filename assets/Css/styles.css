@@ -64,22 +64,30 @@ body {
     /* Change text color to white when hovered */
 }
 
-#shop-modal {
+#product-search-modal {  
+    z-index: 100;  
+    transition: top 0.5s ease, opacity 0.8s ease;  
+    opacity: 0;  
+    top: -20px; 
+}  
+
+#product-search-modal.activeModal{
+    opacity: 1;  
+    top: 120px;
+}
+
+#shop-modal{
     background: white;
     z-index: 100;
     transition: top 0.5s ease, opacity 0.8s ease;
     /* Add transition for smooth effect */
     opacity: 0;
-    /* Start hidden */
     top: 0;
-    /* Initial top position */
 }
 
-
-#shop-modal.activeModal {
-    opacity: 1;
-}
-
+#shop-modal.activeModal {  
+    opacity: 1;    
+}  
 .icon {
     display: inline-block;
     transition: transform 0.3s ease;

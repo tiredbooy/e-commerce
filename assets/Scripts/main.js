@@ -16,10 +16,114 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileIcon = $.getElementById('profile-icon')
   const shoppingBasketIcon = $.getElementById('shopping-basket-icon');
   const shoppingBasketLength = $.getElementById('shopping-basket-length');
+  const productSearchModal = $.getElementById('product-search-modal')
+  const searchProductInput = $.getElementById('searchProductInput')
+  const productSearchContainer = $.getElementById('productSearchContainer')
   
   loadProductCountInBasket()
+
+  function openProductSearchModal(){
+    productSearchModal.classList.remove("hidden");
+    setTimeout(() => {
+      productSearchModal.classList.add("activeModal"); // Add activeModal class after a short delay
+    }, 30);
+  }
+
+  searchProductInput.addEventListener('keyup',(event) => {
+    productSearchContainer.innerHTML = ''
+    let searchValue = searchProductInput.value.trim().toLowerCase();
+    let productsArray = JSON.parse(localStorage.getItem('products'));
+
+    if(searchValue){
+      openProductSearchModal()
+
+      if(productsArray){
+        handlePorudctModalByLocalStorage(searchValue)
+      }else{
+        handleProductSearchByFetch(searchValue)
+      }
+      
+    }
+    else{
+      productSearchContainer.innerHTML = ''
+      closeProductSearchModal()
+    }
+
+  })
+
+  function handlePorudctModalByLocalStorage(searchValue){
+    let productsArray = JSON.parse(localStorage.getItem('products'));
+    let data = Object.entries(productsArray)
+
+    let filteredWords = data.filter(([name,info]) => {
+      return info.productName.toLowerCase().includes(searchValue)
+    })
+
+    if(filteredWords.length > 1){
+      handleProductSearch(filteredWords)
+    } else{
+      closeProductSearchModal()
+    }
+  }
+
+  function handleProductSearchByFetch(searchValue){
+    fetch(`https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/products.json`)
+      .then(res => res.json())
+        .then(data => {
+          let dataArray = Object.entries(data);
+          let filteredWords = dataArray.filter(([name,info]) => {
+            return info.productName.toLowerCase().includes(searchValue)
+          })
+          handleProductSearch(filteredWords[1])
+        })
+  }
+
+  function closeProductSearchModal() {
+    if (productSearchModal.classList.contains("activeModal")) {
+      productSearchModal.classList.remove("activeModal");
+      
+        productSearchModal.classList.add("hidden");
+      
+    }
+  }
+
+
+  function handleProductSearch(words){
+ 
+    let exportedProducts = words.map(product => {
+      return product
+    })
+    
+    exportedProducts.forEach(item => {
+      let product = item[1];
+      let {productImages,productName,productDescription,productPrice} = product;
+
+      let productImagesResult = productImages[0].url
+
+      let productsResultDom = `
+      <li class="w-full pt-5 px-5 flex justify-between items-center gap-3 max-h-[100px] border-b pb-6">
+        <div class="w-full flex gap-3">
+          <div class="w-20 h-20 overflow-hidden flex items-center justify-center rounded">
+            <img class="w-full h-full object-cover rounded" src="${productImagesResult}" alt="${productName}">
+          </div>
+          <div class="flex flex-col gap-1">
+            <span onclick="openProductPage(event,'${productName}')" class="font-bold"><a href="javascript:void(0)">${productName}</a></span>
+            <span class="text-gray-400 text-sm">${productDescription}</span>
+          </div>
+        </div>
+        <span class="font-semibold">$${productPrice}</span>
+      </li>
+    `;
+
+    productSearchContainer.insertAdjacentHTML('beforeend', productsResultDom);
+    
+    })
+
+  }
   
-  
+//// END OF PRODUCT SEARCH MODAL ////
+
+
   shopBtnSpan.addEventListener('click',() => {
     window.location.href = `/Pages/category.html`;
   })
@@ -56,6 +160,8 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
     }
   });
+
+
 
   function closeModal() {
     shopModal.classList.add("hidden"); // Hide modal
@@ -104,5 +210,4 @@ function loadProductCountInBasket() {
 loadProductCountInBasket()
 
 });
-
 

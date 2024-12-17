@@ -655,6 +655,18 @@ video {
   top: 5%;
 }
 
+.top-12 {
+  top: 3rem;
+}
+
+.top-24 {
+  top: 6rem;
+}
+
+.top-20 {
+  top: 5rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -816,6 +828,10 @@ video {
   height: 100vh;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .max-h-40 {
   max-height: 10rem;
 }
@@ -826,6 +842,22 @@ video {
 
 .max-h-full {
   max-height: 100%;
+}
+
+.max-h-\[100px\] {
+  max-height: 100px;
+}
+
+.max-h-\[20\%\] {
+  max-height: 20%;
+}
+
+.max-h-\[30\%\] {
+  max-height: 30%;
+}
+
+.max-h-\[35\%\] {
+  max-height: 35%;
 }
 
 .w-1\/3 {
@@ -890,6 +922,22 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-3\/4 {
+  width: 75%;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .min-w-full {
@@ -1058,6 +1106,10 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.overflow-auto {
+  overflow: auto;
 }
 
 .overflow-hidden {
@@ -1279,6 +1331,11 @@ video {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
 }
 
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1424,6 +1481,14 @@ video {
 
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+
+.pb-6 {
+  padding-bottom: 1.5rem;
 }
 
 .text-center {
@@ -1626,6 +1691,11 @@ video {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .filter {
@@ -2004,6 +2074,38 @@ video {
 @media (min-width: 976px) {
   .lg\:left-\[19\%\] {
     left: 19%;
+  }
+
+  .lg\:left-\[25\%\] {
+    left: 25%;
+  }
+
+  .lg\:right-\[25\%\] {
+    right: 25%;
+  }
+
+  .lg\:right-\[19\%\] {
+    right: 19%;
+  }
+
+  .lg\:right-\[15\%\] {
+    right: 15%;
+  }
+
+  .lg\:right-\[1\%\] {
+    right: 1%;
+  }
+
+  .lg\:right-\[16\%\] {
+    right: 16%;
+  }
+
+  .lg\:right-\[17\%\] {
+    right: 17%;
+  }
+
+  .lg\:top-12 {
+    top: 3rem;
   }
 
   .lg\:mx-1 {

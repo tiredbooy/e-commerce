@@ -221,12 +221,8 @@ document.addEventListener("DOMContentLoaded", () => {
       productImages: uploadedImageUrls, // Include DataURLs for images
       sales: 0,
       dateAdded : formattedDate ,
-      sizes : {
-        size
-      }, // Include sizes as an array for easy retrieval and display in the frontend
-      colors : {
-        color
-      },
+      size,
+      color,
     };
 
     alert("uploading product please wait!!");
@@ -260,9 +256,9 @@ document.addEventListener("DOMContentLoaded", () => {
       successDiv.classList.add("product-success");
       setTimeout(() => {
         successDiv.classList.remove("product-success");
-        // newProductContainer.classList.add("hidden");
-        // moveToCreateProductBtn.classList.remove("hidden");
-        // manageProductTable.classList.remove("hidden");
+        newProductContainer.classList.add("hidden");
+        moveToCreateProductBtn.classList.remove("hidden");
+        manageProductTable.classList.remove("hidden");
 
         loadProductInTable();
       }, 2000);
@@ -544,7 +540,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     ).then((res) => {
       if (res.ok) {
-        console.log(res);
         loadUserNameAndImage(userName, imageUrl);
       }
     });

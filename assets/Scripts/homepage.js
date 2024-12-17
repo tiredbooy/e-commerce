@@ -12,7 +12,6 @@ function loadNewArrival() {
         let slicedSortedArray = sorted.slice(0,4);
 
         slicedSortedArray.forEach(product => {
-            console.log(product[1]);
             let productImg = product[1].productImages[0].url || "placeholder.jpg";
             let {productName,productDescription,productPrice} = product[1]
 
@@ -41,7 +40,6 @@ function loadTopSelling() {
         let slicedSortedArray = sorted.slice(0,4);
 
         slicedSortedArray.forEach(product => {
-            console.log(product[1]);
             let productImg = product[1].productImages[0].url || "placeholder.jpg";
             let {productName,productDescription,productPrice} = product[1]
 
@@ -91,4 +89,50 @@ function createDomProducts (productImg
   `;
 
 //    productCard;
+}
+
+function openProductPage(event,productTitle) {
+  event.target.href = `/Pages/product.html?product=${productTitle}`;
+}
+
+function addToShoppingBasket(event,productTitle){
+  const clickedBtn = event.target;
+  clickedBtn.classList.add('animate-pulse');
+  clickedBtn.classList.remove('text-gray-700')
+  setTimeout(() => {
+    clickedBtn.classList.remove('animate-pulse');
+    clickedBtn.classList.add('text-gray-700')
+    
+  }, 1000);
+ 
+  let shoppingBasket = {
+    productName : productTitle,
+    quantity : 1,
+    color : 'white',
+    size: 'L'
+  }
+
+  let savedBasket = JSON.parse(localStorage.getItem('shoppingBasket')) || [];
+  savedBasket.push(shoppingBasket);
+
+  localStorage.setItem('shoppingBasket', JSON.stringify(savedBasket));
+
+  loadProductCountInBasket(savedBasket)
+}
+
+function addToFavorit(event,productTitle){
+  let heartBtn = event.target
+  // event.target.classLIst.replace('text-gray-700','text-red-500')
+  heartBtn.classList.toggle('text-red-500')
+  heartBtn.classList.toggle('text-gray-700')
+}
+
+function loadProductCountInBasket(basket) {
+  const shoppingBasketLength = $.getElementById('shopping-basket-length');
+  // let productInShoppingBasket = JSON.parse(localStorage.getItem('shoppingBasket'));
+  shoppingBasketLength.style.display = 'none';
+  if(basket){
+    shoppingBasketLength.style.display = 'block';
+    shoppingBasketLength.innerHTML = basket.length;
+  }
 }

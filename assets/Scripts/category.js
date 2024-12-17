@@ -133,7 +133,6 @@ function createProduct(productImg, productTitle, productDes, productPrice) {
 }
 
 function openProductPage(event,productTitle) {
-  // window.location.href = `/Pages/product.html?product=${productTitle}`; // Navigate to category.html with query parameter
   event.target.href = `/Pages/product.html?product=${productTitle}`;
 }
 

@@ -1,20 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
   const title = document.querySelector("title");
-
   // Get the query string from the URL
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const product = urlParams.get("product");
 
   // Capitalize the first letter of the product
-  const formattedProduct = product.charAt(0).toUpperCase() + product.slice(1);
+  const formattedProduct = product.charAt(0) + product.slice(1);
+  console.log('formattedProduct : ',formattedProduct);
 
   // Update the document title
   title.textContent = formattedProduct;
 
   // let productID = formattedProduct.replace(" ","_")
   let productID = formattedProduct.replace(/\s+/g, "_");
-  console.log(productID);
+  console.log('productID : ',productID);
+ 
 
   loadProductDetails();
 
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let filteredProductFromLocal = data.find(
         ([name, info]) => name === productID
       );
-      console.log(filteredProductFromLocal[1]);
+  
 
       let {
         productImages,
@@ -132,7 +133,7 @@ function createProduct(
     ? productSizes
         .map(
           (size) =>
-            `<button onclick=handleSizeButton(event) class="bg-gray-200 py-1 px-2 lg:py-2 lg:px-4 rounded-xl text-gray-500 hover:bg-black hover:text-white duration-150">${size}</button>`
+            `<button onclick=handleSizeButton(event) class="bg-gray-200 py-1 px-2 lg:py-2 lg:px-4 rounded-xl text-gray-500 hover:bg-black hover:text-white duration-150 productSizeBtns">${size}</button>`
         )
         .join("")
     : null;
@@ -230,7 +231,6 @@ function showSection(sectionId) {
 showSection("product-info");
 
 function changeMainImage(event) {
-  // console.log(event.target.src);
   let mainProductImage = document.querySelector(".mainProductImage");
   let mainProductImageSrc = mainProductImage.src;
 
@@ -241,17 +241,19 @@ function changeMainImage(event) {
 let userSelectedSize;
 
 function handleSizeButton(event) {
+  const productSizeBtns = document.querySelectorAll('.productSizeBtns')
+  productSizeBtns.forEach((btn) => {
+    btn.classList.replace("bg-black", "bg-gray-200");
+    btn.classList.replace("text-white", "text-gray-500");
+  })//btn.classList.remove("text-white","bg-black"));
   let clickedBtn = event.target;
   userSelectedSize = clickedBtn.innerText;
   // event.target.classList.toggle([' , bg-black'])
 
-  if (clickedBtn.classList.contains("bg-gray-200")) {
+  if (!clickedBtn.classList.contains("bg-black")) {
     clickedBtn.classList.replace("text-gray-500", "text-white");
     clickedBtn.classList.replace("bg-gray-200", "bg-black");
-  } else {
-    clickedBtn.classList.replace("bg-black", "bg-gray-200");
-    clickedBtn.classList.replace("text-white", "text-gray-500");
-  }
+  }  
 }
 
 let userSelectedColor;
@@ -259,7 +261,6 @@ let userSelectedColor;
 function handleColorCircles(event, color) {
   let colorCircles = document.querySelectorAll(".colorCircles");
   let selectedColor = event.target;
-  console.log(event.target.classList);
   // Remove selection from all circles
   colorCircles.forEach((circle) => {
     circle.classList.remove("border-black");
@@ -274,14 +275,10 @@ function handleColorCircles(event, color) {
 
   // Extract the color class (e.g., bg-white, bg-red-500)
   userSelectedColor = color;
-  console.log("Color :", color);
 }
 
 function addProductToShoppingBasket(productTitle) {
   let quantityInputValue = document.querySelector(".quantityInput").value;
-  console.log(
-    `Color is :  ${userSelectedColor} and size is :  ${userSelectedSize}`
-  );
   let productBasket = {
     productName: productTitle,
     color: userSelectedColor,
@@ -293,11 +290,14 @@ function addProductToShoppingBasket(productTitle) {
 
   shoppingBasket.push(productBasket);
 
+   // Call load Product CountBasket
+   loadProductCountInBasket(shoppingBasket)
+
   localStorage.setItem("shoppingBasket", JSON.stringify(shoppingBasket));
+  alert('Product Added To Shopping basket')
 }
 
 function recommendProducts(currentProductCategory) {
-  console.log(currentProductCategory);
 
   const localSavedProducts = JSON.parse(localStorage.getItem("products"));
 
@@ -411,3 +411,4 @@ function loadProductCountInBasket(basket) {
     shoppingBasketLength.innerHTML = basket.length;
   }
 }
+

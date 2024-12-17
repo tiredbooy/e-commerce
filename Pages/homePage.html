@@ -37,8 +37,9 @@
         <div id="nav-search" class="relative flex items-center w-full lg:w-1/3 mt-4 lg:mt-0">
           <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 cursor-pointer"></i>
           <input
+              id="searchProductInput"
               type="text"
-              class="w-full pl-10 py-2 rounded-full bg-gray-100 text-gray-600 border border-gray-300 focus:outline-none focus:ring focus:ring-gray-200 duration-150"
+              class="w-full pl-10 py-2 rounded-full bg-gray-100 text-gray-600 border border-gray-300 focus:outline-none focus:ring focus:border-transparent focus:ring-gray-200 duration-150"
               placeholder="Search for products..."
           />
       </div>
@@ -64,19 +65,25 @@
   
       </nav>
     </header>
-      
+    
+    <!-- /assets/images/site-assets/gym.avif -->
     <main class="home-page">
 
-      <div id="shop-modal" class="bg-white p-8 w-full absolute top-0 right-0 md:w-full lg:w-1/4 lg:left-[19%] flex flex-col gap-5 hidden">
-        <ul >
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="casual-outfit" rel="noopener noreferrer">Casual</a></li>
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="gym-outfit" rel="noopener noreferrer">Gym</a></li>
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="party-outfit" rel="noopener noreferrer">Party</a></li>
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="formal-outfit" rel="noopener noreferrer">Formal</a></li>
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="perfume" rel="noopener noreferrer">Perfume</a></li>
-          <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="shoes" rel="noopener noreferrer">Shoes</a></li>
+      <div id="product-search-modal" class=" bg-white overflow-auto max-h-[35%] p-3 w-full absolute top-20 right-0 md:w-full lg:w-1/3 lg:right-[17%] flex flex-col gap-5 hidden">
+        <ul id="productSearchContainer" class="flex flex-col gap-2">
         </ul>
       </div>
+
+        <div id="shop-modal" class="bg-white p-8 w-full absolute top-0 right-0 md:w-full lg:w-1/4 lg:left-[19%] flex flex-col gap-5 hidden">
+          <ul >
+            <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="casual-outfit" rel="noopener noreferrer">Casual</a></li>
+            <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="gym-outfit" rel="noopener noreferrer">Gym</a></li>
+            <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="party-outfit" rel="noopener noreferrer">Party</a></li>
+            <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="formal-outfit" rel="noopener noreferrer">Formal</a></li>
+            <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="perfume" rel="noopener noreferrer">Perfume</a></li>
+            <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="shoes" rel="noopener noreferrer">Shoes</a></li>
+          </ul>
+        </div>
 
     <section id="hero-sec" class="relative w-full overflow-hidden flex flex-col lg:flex-row items-center lg:justify-between">
         <!-- Hero Left -->
@@ -138,7 +145,7 @@
     <section id="new-arrival" class="h-auto w-full flex flex-col items-center p-8 lg:px-24 lg:pt-24 border-b gap-16">
       <h2 class="font-bold text-5xl">NEW ARRIVALS</h2>
 
-      <div id="newArrivalContainer" class="container cards mx-auto p-6 flex flex-row justify-between items-center">
+      <div id="newArrivalContainer" class="container cards mx-auto p-6 flex flex-row justify-between">
         
         <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
@@ -281,7 +288,7 @@
     <section id="top-selling" class="h-auto w-full flex flex-col items-center p-8 lg:px-24 lg:pt-24 gap-16">
       <h2 class="font-bold text-5xl">TOP SELLING</h2>
 
-      <div id="topSellingContainer" class="container cards mx-auto p-6 flex flex-row justify-between items-center">
+      <div id="topSellingContainer" class="container cards mx-auto p-6 flex flex-row justify-between">
         
         <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
