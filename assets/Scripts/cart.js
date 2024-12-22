@@ -147,20 +147,23 @@ const createDomCard = (
 let promoCodeArray = ["promo", "off", "first", "winter"];
 
 let totalPriceElement = document.getElementById("totalPriceElement");
+let diliveryPriceElem = document.getElementById("diliveryPriceElem");
+const subTotalElem = document.getElementById("subtotalElement");
 const promoCodeInput = document.getElementById("promoCodeInput");
 const applyPromoCodeBtn = document.getElementById("applyPromoCode");
+let totalPriceForOrder = 0;
 function calculateTotalPrice(price) {
   let priceSum = price.reduce((prev, curr) => {
     return prev + curr;
   });
 
+  totalPriceForOrder = priceSum;
+
   let diliveryPrice = priceSum * 0.01;
   let totalPrice = priceSum + diliveryPrice;
-  document.getElementById("subtotalElement").innerHTML = `$${priceSum}`;
+  subTotalElem.innerHTML = `$${priceSum}`;
 
-  document.getElementById(
-    "diliveryPriceElem"
-  ).innerHTML = `$${diliveryPrice.toFixed(2)}`;
+  diliveryPriceElem.innerHTML = `$${diliveryPrice.toFixed(2)}`;
 
   totalPriceElement.innerHTML = `$${totalPrice}`;
 
@@ -190,7 +193,7 @@ function calculatePromoCode(priceSum, totalPrice) {
     if (discount > 0) {
       discountSection.classList.remove("hidden");
       discountElem.innerHTML = `-$${discount.toFixed(2)}`;
-      totalPriceElement.innerHTML = (totalPrice - discount).toFixed(2);
+      totalPriceElement.innerHTML = `$${(totalPrice - discount).toFixed(2)}`;
     } else {
       discountSection.classList.add("hidden");
     }
@@ -281,41 +284,82 @@ function loadProductCountInBasket(basket) {
 // Initial Render
 renderProducts();
 
+function generateRandomID(length) {  
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // Uppercase letters only  
+  let randomID = '';  
+
+  for (let i = 0; i < length; i++) {  
+      const randomIndex = Math.floor(Math.random() * characters.length);  
+      randomID += characters[randomIndex]; // Append a random character  
+  }  
+
+  return randomID;  
+}  
+
 function checkOut(){
-  
+  const randomID = generateRandomID(12); 
+
+   const orderItem = {
+      products: productBasket,
+      timestamp: new Date().toISOString(),
+      orderPrice : totalPriceForOrder ,
+   }
+
+  fetch(`https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/orders/${randomID}.json`,{
+    method: 'PUT',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(orderItem),
+  }).then(res => {
+    if(res.ok) {
+      console.log('Order created successfully');
+    }else{
+      console.error('Failed to create order');
+    }
+  })
+
   productBasket.forEach(product => {
     const productID = product.productName.replace(/\s+/g, "_"); // Generate productID
-    console.log(`${productID} Has ${product.quantity} Quantity`);
     
     fetch(`https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productID}.json`)
       .then(res => res.json())
         .then(data => {
           let findedProductArray = Object.entries({data});
 
-          findedProductArray.forEach(item => {
-            let productSales = item[1].sales + product.quantity;
-            fetch(`https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productID}.json`, {
-              method: 'PATCH',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                sales: productSales
-              })
-            }).then(res => {
-              if(res.ok) {
-                console.log('Sales updated successfully');
-              }else{
-                console.error('Failed to update sales');
-              }
-            })
 
-          })
+            findedProductArray.forEach(item => {
+            if(item[1].productStock > 0){
+
+              let newStock = item[1].productStock - product.quantity;
+              let productSales = item[1].sales + product.quantity;
+              fetch(`https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productID}.json`, {
+                method: 'PATCH',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  productStock: newStock,
+                  sales: productSales
+                })
+              }).then(res => {
+                if(res.ok) {
+                  totalPriceElement.innerHTML = '';
+                  diliveryPriceElem.innerHTML = '';
+                  subTotalElem.innerHTML = '';
+                  console.log('Sales updated successfully');
+                }else{
+                  console.error('Failed to update sales');
+                }
+              })
+
+            }else{
+              alert('Sorry The product you want is out of stuck when its charg we will call you !');
+            }
+            })
+          
+          
         })
 
         .catch(err => console.error('Error:', err));
-
-        
 
         localStorage.removeItem('shoppingBasket');
         loadProductCountInBasket([]);

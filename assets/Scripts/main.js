@@ -1,16 +1,11 @@
 const $ = document;
 
 document.addEventListener("DOMContentLoaded", () => {
+  const shopBtn = $.querySelector('#shopBtn')
   const shopBtnSpan = $.querySelector("#shop-btn span");
   const shopModal = $.getElementById("shop-modal");
   const hamburgerMenu = $.getElementById("hamburger-menu");
   const bodyTag = $.querySelector("body");
-  const casualOutfit = $.getElementById("casual-outfit");
-  const gymOutfit = $.getElementById("gym-outfit");
-  const partyOutfit = $.getElementById("party-outfit");
-  const formalOutfit = $.getElementById("formal-outfit");
-  const perfume = $.getElementById("perfume");
-  const shoes = $.getElementById("shoes");
   const modalItems = $.querySelectorAll("#shop-modal li");
   const shopBtnIcon = $.querySelector('#shop-btn i');
   const profileIcon = $.getElementById('profile-icon')
@@ -21,6 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const productSearchContainer = $.getElementById('productSearchContainer')
   
   loadProductCountInBasket()
+
+  let signUpNowBtn = document.getElementById('sign-upNow');
+
+
+  signUpNowBtn.addEventListener('click',() => {
+    signUpNowBtn.href = "/Pages/login-signup.html"
+  })
 
   function openProductSearchModal(){
     productSearchModal.classList.remove("hidden");

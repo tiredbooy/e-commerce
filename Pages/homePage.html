@@ -14,7 +14,7 @@
       <div class="top-banner w-full bg-black p-2 text-center text-gray-300">
         <span class="lg:text-lg md:text-base  sm:text-xs">  
           Sign up and get 20% off your first order.  
-          <a class="text-white underline" href="">Sign Up Now</a>  
+          <a id="sign-upNow" class="text-white underline" href="">Sign Up Now</a>  
         </span>
       </div>
   
@@ -69,12 +69,12 @@
     <!-- /assets/images/site-assets/gym.avif -->
     <main class="home-page">
 
-      <div id="product-search-modal" class=" bg-white overflow-auto max-h-[35%] p-3 w-full absolute top-20 right-0 md:w-full lg:w-1/3 lg:right-[17%] flex flex-col gap-5 hidden">
+    <div id="product-search-modal" class=" bg-white overflow-auto max-h-[35%] p-3 w-full absolute top-20 right-0 md:w-full lg:w-1/3 lg:right-[17%] flex flex-col gap-5 hidden">
         <ul id="productSearchContainer" class="flex flex-col gap-2">
         </ul>
-      </div>
+    </div>
 
-        <div id="shop-modal" class="bg-white p-8 w-full absolute top-0 right-0 md:w-full lg:w-1/4 lg:left-[19%] flex flex-col gap-5 hidden">
+    <div id="shop-modal" class="bg-white p-8 w-full absolute top-0 right-0 md:w-full lg:w-1/4 lg:left-[19%] flex flex-col gap-5 hidden">
           <ul >
             <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="casual-outfit" rel="noopener noreferrer">Casual</a></li>
             <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="gym-outfit" rel="noopener noreferrer">Gym</a></li>
@@ -83,7 +83,7 @@
             <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="perfume" rel="noopener noreferrer">Perfume</a></li>
             <li class="font-semibold text-gray-400 border-b p-3 hover:text-black duration-300"><a href="" target="_blank"  id="shoes" rel="noopener noreferrer">Shoes</a></li>
           </ul>
-        </div>
+    </div>
 
     <section id="hero-sec" class="relative w-full overflow-hidden flex flex-col lg:flex-row items-center lg:justify-between">
         <!-- Hero Left -->
@@ -145,7 +145,7 @@
     <section id="new-arrival" class="h-auto w-full flex flex-col items-center p-8 lg:px-24 lg:pt-24 border-b gap-16">
       <h2 class="font-bold text-5xl">NEW ARRIVALS</h2>
 
-      <div id="newArrivalContainer" class="container cards mx-auto p-6 flex flex-row justify-between">
+      <div id="newArrivalContainer" class="container cards mx-auto p-6 flex flex-col lg:flex-row justify-between">
         
         <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
@@ -288,7 +288,7 @@
     <section id="top-selling" class="h-auto w-full flex flex-col items-center p-8 lg:px-24 lg:pt-24 gap-16">
       <h2 class="font-bold text-5xl">TOP SELLING</h2>
 
-      <div id="topSellingContainer" class="container cards mx-auto p-6 flex flex-row justify-between">
+      <div id="topSellingContainer" class="container cards mx-auto p-6 flex flex-col lg:flex-row justify-between">
         
         <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
@@ -434,25 +434,25 @@
     
         <div class="cards flex flex-wrap gap-8 justify-center mt-14">
           
-          <div class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-xl shadow-md relative cursor-pointer lg:max-h-[350px] group">
+          <div data-category="casual" class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-xl shadow-md relative cursor-pointer lg:max-h-[350px] group categoryCards">
             <img src="/assets/images/site-assets/ca.avif" alt="Casual" class="rounded-md w-[100%] h-full object-cover duration-300 group-hover:scale-105">
             <p class="absolute top-4 left-4 bg-white text-black text-xl font-semibold px-3 py-1 rounded">Casual</p>
           </div>
     
           
-          <div class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-lg shadow-md relative cursor-pointer max-h-[350px] group">
+          <div data-category="formal" class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-lg shadow-md relative cursor-pointer max-h-[350px] group categoryCards">
             <img src="/assets/images/site-assets/formal.avif" alt="Formal" class="rounded-md w-[100%] h-full object-cover  duration-300 group-hover:scale-105">
             <p class="absolute top-4 left-4 bg-white text-black text-xl font-semibold px-3 py-1 rounded">Formal</p>
           </div>
     
          
-          <div class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-lg shadow-md relative cursor-pointer max-h-[350px] group">
+          <div data-category="party" class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-lg shadow-md relative cursor-pointer max-h-[350px] group categoryCards">
             <img src="/assets/images/site-assets/w.jpg" alt="Party" class="rounded-md w-full h-full object-cover duration-300 group-hover:scale-105">
             <p class="absolute top-4 left-4 bg-white text-black text-xl font-semibold px-3 py-1 rounded">Party</p>
           </div>
     
           
-          <div class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-lg shadow-md relative cursor-pointer max-h-[350px] group">
+          <div data-category="gym" class="card bg-white p-4 w-full h-[190px] lg:w-[46%] flex-shrink-0 rounded-lg shadow-md relative cursor-pointer max-h-[350px] group categoryCards">
             <img src="/assets/images/site-assets/gym.avif" alt="Gym" class="rounded-md w-[100%] h-full object-cover duration-300 group-hover:scale-105">
             <p class="absolute top-4 left-4 bg-white text-black text-xl font-semibold px-3 py-1 rounded">Gym</p>
           </div>
@@ -464,15 +464,15 @@
       <div class="flex flex-row items-center justify-between">
         <h2 class="font-extrabold text-3xl lg:text-5xl">OUR HAPPY CUSTOMERS</h2>
         <div class="flex flex-row gap-5">
-          <i class="fa-solid fa-angle-left text-gray-700 text-2xl hover:text-black cursor-pointer duration-150"></i>
-          <i class="fa-solid fa-angle-right text-gray-700 text-2xl hover:text-black cursor-pointer duration-150"></i>
+          <i class="prevBtn fa-solid fa-angle-left text-gray-700 text-2xl hover:text-black cursor-pointer duration-150"></i>
+          <i class="nextBtn fa-solid fa-angle-right text-gray-700 text-2xl hover:text-black cursor-pointer duration-150"></i>
         </div>
       </div>
     
       
-      <div class="text-boxes w-full p-3 flex justify-center gap-5 items-center relative overflow-hidden">
+      <div class="commentBoxContainer w-full p-3 flex justify-center items-center gap-5 relative overflow-hidden overflow-x-scroll scrollbar-hide lg:overflow-hidden">
 
-        <div class="text-box border mt-12 p-5 w-1/4 rounded-2xl transition-all duration-500 opacity-30 hidden lg:block">
+        <div class="comment-box border mt-12 p-5 w-full md:w-1/2 lg:w-1/4 rounded-2xl transition-all duration-500 hidden lg:block">
           <div class="flex text-yellow-400 gap-3">
             
             <i class="fas fa-star"></i>
@@ -491,7 +491,7 @@
         </div>
     
         
-        <div class="text-box border mt-12 p-5 w-1/4 rounded-2xl transition-all duration-500 opacity-50 hidden lg:block">
+        <div class="comment-box border mt-12 p-5 w-full md:w-1/2 lg:w-1/4 rounded-2xl transition-all duration-500 hidden lg:block">
           <div class="flex text-yellow-400 gap-3">
             
             <i class="fas fa-star"></i>
@@ -510,7 +510,7 @@
         </div>
     
         
-        <div class="text-box border mt-5 lg:mt-12 p-5 w-full lg:w-1/4 rounded-2xl transition-all duration-500 opacity-100">
+        <div class="comment-box border mt-12 lg:mt-12 p-5 md:w-1/2 w-full lg:w-1/4 rounded-2xl transition-all duration-500 lg:block">
           <div class="flex text-yellow-400 gap-3">
             
             <i class="fas fa-star"></i>
@@ -529,7 +529,7 @@
         </div>
     
         
-        <div class="text-box border mt-12 p-5 w-1/4 rounded-2xl transition-all duration-500 opacity-50 hidden lg:block">
+        <div class="comment-box border mt-12 p-5 w-full md:w-1/2 lg:w-1/4 rounded-2xl transition-all duration-500 hidden lg:block">
           <div class="flex text-yellow-400 gap-3">
             
             <i class="fas fa-star"></i>
@@ -548,7 +548,7 @@
         </div>
     
         
-        <div class="text-box border mt-12 p-5 w-1/4 rounded-2xl transition-all duration-500 opacity-30 hidden lg:block">
+        <div class="comment-box border mt-12 p-5 w-full md:w-1/2 lg:w-1/4 rounded-2xl transition-all duration-500 hidden lg:block">
           <div class="flex text-yellow-400 gap-3">
            
             <i class="fas fa-star"></i>

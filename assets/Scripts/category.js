@@ -1,6 +1,21 @@
 const loading = document.getElementById("loading");
 const productsArray = JSON.parse(localStorage.getItem("products"));
 
+const openFilterBtn = document.querySelector('.openFilterBtn');
+const closeFilterBtn = document.querySelector('.closeFilterBtn');
+const filterPage = document.getElementById('filter-setting');
+const productPage = document.getElementById('products')
+
+openFilterBtn.addEventListener('click',() => {
+  filterPage.classList.remove('hidden')
+  productPage.classList.add('hidden');
+})
+
+closeFilterBtn.addEventListener('click',() => {
+  productPage.classList.remove('hidden');
+  filterPage.classList.add('hidden')
+})
+
 document.addEventListener("DOMContentLoaded", () => {
   const title = document.querySelector("title");
   const productCardContainer = document.getElementById("productCardContainer");
@@ -285,7 +300,7 @@ applyFilterBtn.addEventListener('click', () => {
 
   // Display the filtered products
   filteredProducts.forEach(([name, product]) => {
-    const mainProductImg = product.productImages?.[0]?.url || "placeholder.jpg";
+    const mainProductImg = product.productImages?.[0]?.url || "/assets/images/site-assets/placeholder.jpg";
     createProduct(
       mainProductImg,
       product.productName,
@@ -293,6 +308,11 @@ applyFilterBtn.addEventListener('click', () => {
       product.productPrice
     );
   });
+
+  if(window.innerWidth < 768){
+    filterPage.classList.add('hidden');
+    productPage.classList.remove('hidden');
+  }
 
 });
 

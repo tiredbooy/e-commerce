@@ -1,12 +1,73 @@
 const productsArray = JSON.parse(localStorage.getItem('products')) || [];
 const newArrivalContainer = document.getElementById('newArrivalContainer');
 const topSellingContainer = document.getElementById('topSellingContainer');
+const categoryCards = document.querySelectorAll('.categoryCards');
+const commentBoxes = document.querySelectorAll('.comment-box');
+const prevBtn = document.querySelector('.prevBtn');
+const nextBtn = document.querySelector('.nextBtn');
+
+// Handle Comment SLIDER
+let currentIndex = 0;
+
+function updateActiveBox(index) {
+  const isMobile = window.innerWidth < 768; // Adjust breakpoint for mobile screens
+
+  commentBoxes.forEach((box, i) => {
+    box.classList.remove('activeBox');
+
+    if (isMobile) {
+      if (i === index) {
+        box.classList.remove('hidden')
+        box.classList.add('activeBox');
+      } else {
+        // Inactive boxes on mobile
+        box.classList.add('hidden')
+        box.classList.remove('activeBox');
+      }
+    } else {
+      // Desktop positioning
+      const offset = i - index;
+      box.style.transform = `translateX(${offset * 50}%)`; // Adjust spacing
+      if (i === index) box.classList.add('activeBox'); // Add active class
+    }
+  });
+}
+
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % commentBoxes.length;
+  updateActiveBox(currentIndex);
+});
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + commentBoxes.length) % commentBoxes.length;
+  updateActiveBox(currentIndex);
+});
+
+window.addEventListener('resize', () => {
+  updateActiveBox(currentIndex);
+});
+
+updateActiveBox(currentIndex);
+
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % commentBoxes.length; // Cycle forward
+  updateActiveBox(currentIndex);
+}, 8000); 
+
+// END OF THE COMMENT SLIDER
+
+// Handle Category Cards 
+categoryCards.forEach(card => {
+  card.addEventListener('click', () => {
+    let cat = card.getAttribute('data-category');
+    window.location.href = `category.html?category=${cat}`;
+  })
+})
 
 function loadNewArrival() {
     let products = Object.entries(productsArray);
     if (productsArray) {
         let sorted = products.sort(([a, b], [d, c]) => {
-            // Compare dates (most recent first)
             return new Date(c.dateAdded) - new Date(b.dateAdded);
         });
         let slicedSortedArray = sorted.slice(0,4);

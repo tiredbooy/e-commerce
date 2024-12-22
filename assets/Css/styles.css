@@ -304,6 +304,29 @@ body {
     color: green;
 }  
 
+/* Default styles for all comment boxes */
+.comment-box {
+    opacity: 0.5;
+    transform: scale(0.9); /* Smaller scale for inactive boxes */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Active box styles */
+  .comment-box.activeBox {
+    opacity: 1; /* Fully visible */
+    transform: scale(1); /* Full size */
+  }
+  
+  /* Mobile-specific styles */
+  @media (max-width: 768px) {
+    .commentBoxContainer {
+      overflow-x: scroll; /* Enable horizontal scrolling on mobile */
+      display: flex;
+      scroll-behavior: smooth; /* Smooth scrolling effect */
+    }
+  }
+  
+
 @keyframes shake {  
     0% { transform: translate(0); }  
     25% { transform: translate(-5px, 0); }  

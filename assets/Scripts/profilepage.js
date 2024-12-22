@@ -1,11 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   const apiLink =
     "https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/users.json";
   const menuItemContainer = document.getElementById("menuItemContainer");
   const profileImageInput = document.getElementById("profileImageInput");
   const profileImageUploader = document.getElementById("profileImageUpload");
-  const loading = document.getElementById('loading')
+  const loading = document.getElementById("loading");
+
+  const openMenuBtn = document.getElementById("openMenuBtn");
+  const closeMenuBtn = document.getElementById("closeMenuBtn");
+  const leftContainer = document.querySelector(".left");
+  const rightContainer = document.querySelector(".right");
+  openMenuBtn.addEventListener("click", () => {
+    leftContainer.classList.remove("hidden");
+    rightContainer.classList.add("hidden");
+  });
+
+  closeMenuBtn.addEventListener("click", () => {
+    leftContainer.classList.add("hidden");
+    rightContainer.classList.remove("hidden");
+  });
 
   const adminMenu = [
     "Dashboard",
@@ -28,21 +41,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const myChart = new Chart(ctx, {
     type: "line",
     data: {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      labels: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
       datasets: [
         {
-          label: "My First Dataset",
-          data: [65, 59, 80, 81, 56, 55, 40],
+          label: "Monthly Sales",
+          data: Array(12).fill(0), // Initialize with 0
           fill: false,
           borderColor: "rgb(75, 192, 192)",
           tension: 0.1,
-          pointRadius: 5, // Custom point size
-          pointBackgroundColor: "rgb(75, 192, 192)", // Point fill color
-          pointBorderColor: "white", // Point border color
-          pointHoverRadius: 7, // Point size on hover
-          pointHoverBackgroundColor: "rgb(255, 99, 132)", // Background color on hover
-          pointHoverBorderColor: "black", // Border color on hover
-          pointStyle: "circle", // Point shape ('circle', 'rect', 'triangle', etc.)
+          pointRadius: 5,
+          pointBackgroundColor: "rgb(75, 192, 192)",
+          pointBorderColor: "white",
+          pointHoverRadius: 7,
+          pointHoverBackgroundColor: "rgb(255, 99, 132)",
+          pointHoverBorderColor: "black",
+          pointStyle: "circle",
         },
       ],
     },
@@ -71,12 +97,13 @@ document.addEventListener("DOMContentLoaded", () => {
         y: {
           title: {
             display: true,
-            text: "Values",
+            text: "Sales",
           },
         },
       },
     },
   });
+
   // End OF the Chart for admin dashboard
 
   let userId = localStorage.getItem("userID");
@@ -128,6 +155,10 @@ document.addEventListener("DOMContentLoaded", () => {
     manageProductTable.classList.add("hidden");
   });
 
+  let productsSalesSummery = [];
+  let totalRevenue = 0;
+  let productInStock = [];
+
   function loadProductInTable() {
     manageProductTableTbody.innerHTML = "";
 
@@ -136,13 +167,23 @@ document.addEventListener("DOMContentLoaded", () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        loading.classList.add('hidden');
-        manageProductTableTbody.classList.remove('hidden')
+        loading.classList.add("hidden");
+        manageProductTableTbody.classList.remove("hidden");
         let dataArray = Object.entries(data);
+
+        for (const product in data) {
+          if (data[product].sales > 0) {
+            const revenueForProduct =
+              data[product].productPrice * data[product].sales;
+            totalRevenue += revenueForProduct;
+          }
+        }
+        document.getElementById(
+          "totalRevenueSummeryNum"
+        ).textContent = `$${totalRevenue}`;
 
         dataArray.forEach((item) => {
           let productData = item[1];
-
           const tableInnerHtml = `<tr class="bg-white hover:bg-gray-50">
           <td class="py-3 px-4 border border-gray-300">${productData.productName}</td>
           <td class="py-3 px-4 border border-gray-300">${productData.productStock}</td>
@@ -154,6 +195,11 @@ document.addEventListener("DOMContentLoaded", () => {
             "beforeend",
             tableInnerHtml
           );
+          productsSalesSummery.push(productData.sales);
+          productInStock.push(productData.productStock);
+
+          handleSalesSummery(productsSalesSummery);
+          handleTotalProductInStock(productInStock);
         });
       });
   }
@@ -201,10 +247,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const productCategory = newProductCategory.value.trim();
     const productStock = parseInt(newProductStock.value.trim());
     const size = document.getElementById("productSizes").value.split(",");
-    const color = document.getElementById('productColors').value.split(",");
+    const color = document.getElementById("productColors").value.split(",");
 
     let date = new Date();
-    let formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+    let formattedDate = `${
+      date.getMonth() + 1
+    }/${date.getDate()}/${date.getFullYear()}`;
 
     if (!productName || !productPrice || !productCategory || !productStock) {
       alert("Please fill in all required fields.");
@@ -220,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
       productStock,
       productImages: uploadedImageUrls, // Include DataURLs for images
       sales: 0,
-      dateAdded : formattedDate ,
+      dateAdded: formattedDate,
       size,
       color,
     };
@@ -246,11 +294,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       console.log("Product created successfully:", await response.json());
       // alert("Product created successfully!");
-      newProductNameInput.value = '';
-      newProductDes.value = '';
-      newProductPrice.value = '';
-      newProductCategory.value = '';
-      newProductStock.value = '';
+      newProductNameInput.value = "";
+      newProductDes.value = "";
+      newProductPrice.value = "";
+      newProductCategory.value = "";
+      newProductStock.value = "";
 
       let successDiv = document.getElementById("product-success-div");
       successDiv.classList.add("product-success");
@@ -553,7 +601,7 @@ document.addEventListener("DOMContentLoaded", () => {
       profileImageElement.src = imageUrl;
     } else {
       profileImageElement.src =
-        "https://as2.ftcdn.net/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.webp";
+        "/assets/images/site-assets/useDefault.jpg";
     }
   }
 
@@ -631,6 +679,12 @@ document.addEventListener("DOMContentLoaded", () => {
           icon.classList.remove("rotate-left");
           icon.classList.add("rotate-right");
         }
+
+        if(window.innerWidth  < 768){
+          leftContainer.classList.add("hidden");
+          rightContainer.classList.remove("hidden");
+        }
+        
       });
     });
   }
@@ -697,4 +751,173 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  async function handleSalesSummery(sales) {
+    let totalSales = await sales.reduce((prev, curr) => {
+      return prev + curr;
+    });
+
+    document.getElementById("totalSalesSummeryNum").textContent = totalSales;
+  }
+
+  function handleTotalProductInStock(productINStock) {
+    let totalProductINStock = productINStock.reduce((prev, curr) => {
+      return prev + curr;
+    });
+
+    document.getElementById("productsStockSummeryNum").textContent =
+      totalProductINStock;
+  }
+
+  
+  async function fetchAndProcessSalesData() {
+    const orderApiUrl =
+    "https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json";
+
+    try {
+      // Step 1: Fetch data from the API
+      const response = await fetch(orderApiUrl);
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      const orders = await response.json();
+
+      // Step 2: Aggregate sales data by month
+      const monthlySales = Array(12).fill(0); // Initialize an array for 12 months
+
+      if(orders){
+        Object.values(orders).forEach((order) => {
+          const timestamp = order.timestamp;
+          const products = order.products;
+  
+          if (timestamp && products) {
+            const orderDate = new Date(timestamp);
+            const month = orderDate.getMonth(); // Extract month (0-11)
+  
+            // Sum product quantities (assuming each product contributes 1 unit of sales)
+            let orderTotal = 0;
+            Object.values(products).forEach((product) => {
+              orderTotal += product.quantity; // Add quantity of each product
+            });
+  
+            // Add order total to the corresponding month
+            monthlySales[month] += orderTotal;
+          }
+        });
+      }
+
+      // Step 3: Log or use the data
+      // console.log("Monthly Sales:", monthlySales);
+      return monthlySales; // Example: [100, 200, 150, 0, ...]
+    } catch (error) {
+      console.error("Error processing sales data:", error);
+      return Array(12).fill(0); // Default empty sales data on error
+    }
+  }
+
+  // Example usage to update the chart
+  fetchAndProcessSalesData().then((monthlySales) => {
+    console.log("Monthly Sales:", monthlySales); // Verify the sales data is correct
+
+    // Update the chart data
+    myChart.data.datasets[0].data = monthlySales;
+
+    // Trigger a chart update
+    myChart.update();
+  });
+
+
+ 
+
+  loadOrders();
+
+
 });
+
+function loadOrders() {
+  fetch("https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json")
+    .then((res) => res.json())
+    .then((data) => {
+      if(data) {
+        let dataArray = Object.entries(data);
+
+      dataArray.forEach(([key, value]) => {
+        let orderDate = new Date(value.timestamp);
+        let formattedDate = orderDate.toLocaleDateString("en-US");
+
+        let orderDom = `<div
+        class="order-card border-b py-3 flex flex-row justify-between"
+      >
+        <div class="flex flex-col gap-1">
+          <span class="text-gray-600">Order ID:</span>
+          <span class="font-bold">#${key}</span>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <span class="text-gray-600">Date:</span>
+          <span class="font-bold">${formattedDate}</span>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <span class="text-gray-600">Price:</span>
+          <span class="font-bold">$${value.orderPrice}</span>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <span class="text-gray-600">Status:</span>
+          <div
+            class="flex flex-row gap-1 bg-blue-400 px-2 py-1 rounded-2xl"
+          >
+            <i class="fas fa-star"></i>
+            <span class="text-sm">Pre-order</span>
+          </div>
+        </div>
+
+        <div class="flex flex-row gap-2">
+          <button 
+            onclick="cancelOrder(event,'${key}')"
+            class="px-3 py-1 rounded-xl border border-red-600 text-red-600 hover:border-transparent hover:bg-red-600 hover:text-white duration-150"
+          >
+            Cancel order
+          </button>
+          <button
+            class="px-3 py-1 rounded-xl border text-gray-600 bg-gray-200 hover:bg-gray-400 hover:text-white duration-150"
+          >
+            View details
+          </button>
+        </div>
+      </div>`;
+
+        document
+          .getElementById("orders-page")
+          .insertAdjacentHTML("beforeend", orderDom);
+      });
+      }
+    });
+}
+
+function cancelOrder(event,orderId) {
+  fetch(`https://e-commerce-cf278-default-rtdb.asia-southeast1.firebasedatabase.app/orders/${orderId}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res => {
+    if (res.ok) {
+      alert("Order canceled successfully");
+      loadOrders();
+    } else {
+      alert("Failed to cancel the order");
+    }
+  });
+
+}
+
+window.cancelOrder = cancelOrder;
+
+// Format Date
+// const isoDate = "2024-12-22T12:34:56Z"; // Your ISO date string
+// const dateOnly = isoDate.split('T')[0]; // Get the date part
+
+// console.log(dateOnly);

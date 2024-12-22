@@ -12,7 +12,7 @@
       <div class="top-banner w-full bg-black p-2 text-center text-gray-300">
         <span class="lg:text-lg md:text-base  sm:text-xs">  
           Sign up and get 20% off your first order.  
-          <a class="text-white underline" href="">Sign Up Now</a>  
+          <a id="sign-upNow" class="text-white underline" href="">Sign Up Now</a>  
         </span>
       </div>
   
@@ -82,12 +82,12 @@
       </div>
 
       <section class="w-full p-3 lg:py-6 lg:px-16 flex flex-row gap-5">
-        <div id="filter-setting" class="w-1/4 border rounded-xl h-auto p-5 hidden lg:block">
+        <div id="filter-setting" class="w-full md:w-1/2 lg:w-1/4 border rounded-xl h-auto p-5 hidden lg:block">
 
           <div class="flex flex-row justify-between items-center border-b pb-5">
             <span class="text-lg font-semibold">Filters</span>
             <i
-              class="fas fa-sliders text-gray-500 cursor-pointer hover:text-black"
+              class="fas fa-sliders text-gray-500 cursor-pointer hover:text-black closeFilterBtn"
             ></i>
           </div>
 
@@ -187,10 +187,6 @@
 
             <div class="flex flex-row gap-5 items-center">
               <span class="text-gray-500 hidden lg:block">
-                Showing 1-10 of 100 Products
-              </span>
-
-              <span class="text-gray-500 hidden lg:block">
                 Sort by :
                 <select class="text-black p-1 cursor-pointer duration-150 bg-transparent outline-none" id="productSortSelect">  
                   <option class="cursor-pointer" value="MostPopular">Most Popular</option>  
@@ -202,7 +198,7 @@
 
               
             </div>
-            <i class="fas fa-sliders text-gray-500 cursor-pointer block lg:!hidden hover:text-black"></i>
+            <i class="fas fa-sliders text-gray-500 cursor-pointer block lg:!hidden hover:text-black openFilterBtn"></i>
 
           </div>
 
@@ -270,8 +266,8 @@
           </div>
           
         </div>
-
       </section>
+      
     </main>
 
     <div
