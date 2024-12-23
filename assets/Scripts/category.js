@@ -6,6 +6,9 @@ const closeFilterBtn = document.querySelector('.closeFilterBtn');
 const filterPage = document.getElementById('filter-setting');
 const productPage = document.getElementById('products')
 
+let productPerPage = 5;
+let currentPage = 1;
+
 openFilterBtn.addEventListener('click',() => {
   filterPage.classList.remove('hidden')
   productPage.classList.add('hidden');
@@ -63,11 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         const data = await response.json();
 
-        // loading.classList.add('hidden')
-        // productCardContainer.classList.remove('hidden')
-
-        // Cache the fetched data in localStorage
-        
         let productsArray = {...data}
         localStorage.setItem("products", JSON.stringify(productsArray));
 
@@ -88,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
  
 });
 
-function renderProducts(data, category) {
+function renderProducts(data, category, currentPage = 1, itemsPerPage = 5) {
   // Convert the data into an array of product entries
   const productsArray = Object.entries(data);
 
@@ -97,11 +95,16 @@ function renderProducts(data, category) {
       ? productsArray.filter(([name, info]) => info.productCategory === category)
       : productsArray;
 
+  // Pagination logic: calculate start and end index
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+
   // Clear the product container before rendering new products
   productCardContainer.innerHTML = "";
 
-  // Loop through the filtered products and call createProduct for each
-  filteredProducts.forEach(([name, productInfo]) => {
+  // Loop through the paginated products and call createProduct for each
+  paginatedProducts.forEach(([name, productInfo]) => {
       const mainProductImg = productInfo.productImages?.[0]?.url || "placeholder.jpg";
 
       createProduct(
@@ -111,6 +114,9 @@ function renderProducts(data, category) {
           productInfo.productPrice
       );
   });
+
+  // Render pagination controls
+  renderPaginationControls(filteredProducts.length, itemsPerPage, currentPage, category);
 }
 
 function createProduct(productImg, productTitle, productDes, productPrice) {
@@ -146,6 +152,34 @@ function createProduct(productImg, productTitle, productDes, productPrice) {
 
   productCardContainer.insertAdjacentHTML("beforeend", productCard);
 }
+
+function renderPaginationControls(totalItems, itemsPerPage, currentPage, category) {
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const paginationContainer = document.getElementById("paginationControls");
+
+  // Clear existing controls
+  paginationContainer.innerHTML = "";
+
+  // Generate pagination buttons
+  for (let page = 1; page <= totalPages; page++) {
+      const button = document.createElement("button");
+
+      button.textContent = page;
+      button.className = `h-8 w-8 rounded-xl cursor-pointer text-gray-600 hover:text-black hover:bg-gray-200 ${page === currentPage ? "active" : ""}`;
+
+      if(button.classList.contains('active')){
+        button.classList.replace('text-gray-600','text-white')
+      }
+      
+      // Add click event to navigate to the selected page
+      button.addEventListener("click", () => {
+          renderProducts(JSON.parse(localStorage.getItem("products")), category, page, itemsPerPage);
+      });
+
+      paginationContainer.appendChild(button);
+  }
+}
+
 
 function openProductPage(event,productTitle) {
   event.target.href = `/Pages/product.html?product=${productTitle}`;

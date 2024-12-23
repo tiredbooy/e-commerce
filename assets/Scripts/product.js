@@ -126,7 +126,7 @@ function createProduct(
         )
 
         .join("")
-    : null;
+    : '';
 
   // Generate the HTML for sizes dynamically
   const sizesHTML = productSizes

@@ -31,6 +31,12 @@ body {
     /* Transition for text color change */
 }
 
+.active{
+    color: white;
+    background-color: black;
+    /* Change text color to white when hovered */
+}
+
 .transition-btn::before {
 
     color: white;
